@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미세먼지 정보</title>
+</head>
+<body>
+    <h1>현재 미세먼지 상태</h1>
+    <div id="airQuality"></div>
+
+    <script>
+        // OpenAQ API에서 미세먼지 정보를 가져오는 함수
+        async function fetchAirQuality() {
+            try {
+                const response = await fetch('https://api.openaq.org/v1/latest?country=KR&parameter=pm25');
+                const data = await response.json();
+                const pm25 = data.results[0].measurements[0].value;
+                document.getElementById('airQuality').innerText = `현재 미세먼지 농도: ${pm25} μg/m³`;
+            } catch (error) {
+                console.error('미세먼지 정보를 가져오는 중 오류가 발생했습니다:', error);
+            }
+        }
+
+        // 페이지가 로드될 때 미세먼지 정보를 가져옴
+        window.onload = fetchAirQuality;
+    </script>
+</body>
+</html>
