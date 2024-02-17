@@ -38,6 +38,12 @@
             <input type="search" placeholder="검색어를 입력하세요." id="searchInput">
             <button class="btn-search">검색</button>
           </div>
+          <div class="search-box-result">
+            <div class="container">
+              <div class="recent-search-history"></div>
+              <div class="popular-search"></div>
+            </div>
+          </div>
         </div>
         <div class="header-ad">
           <ul id="ad-list">
@@ -466,8 +472,85 @@
           </li>
         </ul>
     </section>
-    <section id="ad"></section>
+    <section id="ad1"></section>
     <section id="bookmark">
+      <!-- 자주가는 메뉴 팝업 -->
+      <div id="id_my_menu_set" class="my_menu_set">
+        <div class="my_menu_set_title">
+          <h3>자주가는 메뉴</h3>
+            <div class="set">
+              <a href="#">
+                <img src="/img/main2014/my_menu_set_close.png" />
+              </a>
+            </div>
+        </div>
+        <ul class="my_menu_set_age">
+          <li>
+              <a href="#">만 0세</a>
+          </li>
+          <li>
+              <a href="#">만 1세</a>
+          </li>
+          <li>
+              <a href="#">만 2세</a>
+          </li>
+          <li>
+              <a href="#">만 3세</a>
+          </li>
+          <li>
+              <a href="#" >만 4세</a>
+          </li>
+          <li>
+              <a href="#" >만 5세</a>
+          </li>
+          <li>
+              <a href="#" >혼합 0,1세</a>
+          </li>
+          <li>
+              <a href="#">혼합 1,2세  </a>
+          </li>
+          <li>
+              <a href="#">혼합 3~5세</a>
+          </li>
+          <li>
+              <a href="#">시간연장(영아)</a>
+          </li>
+          <li>
+              <a href="#">시간연장(유아)</a>
+          </li>
+          <li>
+              <a href="#" >방과후</a>
+          </li>
+          <li>
+              <a href="#">안전교육</a>
+          </li>
+          <li>
+              <a href="#">가정통신문</a>
+          </li>
+          <li>
+              <a href="#">이달의 추천자료</a>
+          </li>
+          <li>
+              <a href="#">놀이자신감</a>
+          </li>
+          <li>
+              <a href="#">예비교사방</a>
+          </li>
+          <li>
+              <a href="#">기본생활습관</a>
+          </li>
+          <li>
+              <a href="#">동요듣기</a>
+          </li>
+          <li>
+              <a href="#">이야기마당</a>
+          </li>
+          <li>
+              <a href="#">함께하는 자료실</a>
+          </li>
+        </ul>
+        <div class="my_menu_set_btn"><a href="#">저장</a></div>
+      </div>
       <div class="bookmark1 bookPos">
           <div class="blobs">
             <svg width="371" height="374" viewBox="0 0 371 374" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -477,26 +560,27 @@
           <div class="bookmark-wrap">
             <div class="bookmark-title">
               <h2>교육계획안</h2>
-              <span class="setting">service</span>
+              <span class="setting">편집</span>
             </div>
             <div class="bookmark-all">
               <ul class="bookmark-grid-gap">
                 <li class="bookmark-top">
-                  <div>
-                    <span><a href="#">만0세</a></span>
-                    <span><a href="#">만1세</a></span>
-                    <span><a href="#">만2세</a></span>
+                  <div class="plus_btn_wrap">
+                    <span><a href="#" class="plus_btn">만0세</a></span>
+                    <span><a href="#" class="plus_btn">만1세</a></span>
+                    <span><a href="#" class="plus_btn">만2세</a></span>
                   </div>
                 </li>
                 <li class="bookmark-bottom">
-                  <div>
-                    <span><a href="#">만3세</a></span>
-                    <span><a href="#">만4세</a></span>
-                    <span><a href="#">만5세</a></span>
+                  <div class="plus_btn_wrap">
+                    <span><a href="#" class="plus_btn">만3세</a></span>
+                    <span><a href="#" class="plus_btn">만4세</a></span>
+                    <span><a href="#" class="plus_btn">만5세</a></span>
                   </div>
                 </li>
               </ul>
             </div>
+
           </div>
         
       </div>
@@ -662,30 +746,367 @@
       <div class="recom-song">
 
       </div>
-      <div class="temp-box">
-        <h1 id="country">나라</h1>
-        <h2 id="area">지역</h2>
-        <ul>
-          <li>현재온도 :
-            <span id="currentTemp">온도</span>
-            <span id="currentDescription">현재날씨</span>
-          </li>
-          <li>최고온도 :
-            <span id="maxTemp">최고</span> &deg;C
-          </li>
-          <li>최저온도 :
-            <span id="minTemp">최저</span> &deg;C
-          </li>
-        </ul>
-        <div class="buttons">
-          <button data-cityname="Seoul" class="citybtn">서울</button>
-          <button data-cityname="Paris" class="citybtn">파리</button>
-          <button data-cityname="London" class="citybtn">런던</button>
+      
+    </section>
+    <section id="ad2">
+      <div>
+        <a href="#">
+          <img src="img/ad/어린이날.png" alt="어린이날 선물">
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="img/ad/설렘가득.png" alt="설렘가득">
+        </a>
+      </div>
+    </section>
+    <section id="shopping-contentArea">
+        <div class="hot-keyword">
+          <h2>HOT 키워드</h2>
+          <ul>
+            <li><a href="#">#신학기문구</a></li>
+            <li><a href="#">#신학기교재</a></li>
+            <li><a href="#">#생일만들기</a></li>
+            <li><a href="#">#이달의선물</a></li>
+          </ul>
+        </div>
+        <div class="shopping-product-carousel-1">
+          <div class="shopping">
+            <h2>쇼핑몰</h2>
+            <button class="more shopping-more">쇼핑하러가기</button>
+          </div>
+          <div class="carousel-slider-area">
+              <div class="swiper product-tab-Swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="slider-card">
+                      <a href="#">
+                        <div class="shopping-card-thumnail-box before1">
+                          <img src="img/shopping/rank1.png" alt="[coolean] 쿨린 레디백 미니개리어 CL-002">
+                        </div>
+                        <div class="card-title-box">
+                           <div class="product-name-wrap">
+                             <span class="company">이노드림</span>
+                             <span class="product-name">[coolean] 쿨린 레디백 미니개리어 CL-002</span>
+                           </div>
+                           <p class="price">20,700원 <span class="sale">70%</span></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-card">
+                      <a href="#">
+                        <div class="shopping-card-thumnail-box before2">
+                          <img src="img/shopping/rank2.png" alt="[큐앤아이] 치카치카 20인용 소독기">
+                        </div>
+                        <div class="card-title-box">
+                           <div class="product-name-wrap">
+                             <span class="company">큐앤아이</span>
+                             <span class="product-name">[큐앤아이] 치카치카 20인용 소독기</span>
+                           </div>
+                           <p class="price">231,000원 <span class="sale">13%</span></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-card">
+                      <a href="#">
+                        <div class="shopping-card-thumnail-box before3">
+                          <img src="img/shopping/rank3.png" alt="[키룸] 한눈에 보는 자석 통나무 날짜판 SET">
+                        </div>
+                        <div class="card-title-box">
+                           <div class="product-name-wrap">
+                             <span class="company">키룸</span>
+                             <span class="product-name">[키룸] 한눈에 보는 자석 통나무 날짜판 SET</span>
+                           </div>
+                           <p class="price">59,900원 <span class="sale">30%</span></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-card">
+                      <a href="#">
+                        <div class="shopping-card-thumnail-box before4">
+                          <img src="img/shopping/rank4.png" alt="[놀레] 교통이랑 놀래 4종세트">
+                        </div>
+                        <div class="card-title-box">
+                           <div class="product-name-wrap">
+                             <span class="company">놀레</span>
+                             <span class="product-name">[놀레] 교통이랑 놀래 4종세트</span>
+                           </div>
+                           <p class="price">15,000원 <span class="sale">25%</span></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slider-card">
+                      <a href="#">
+                        <div class="shopping-card-thumnail-box before5">
+                          <img src="img/shopping/rank5.png" alt="[대원P&P] 꽈배기끈">
+                        </div>
+                        <div class="card-title-box">
+                           <div class="product-name-wrap">
+                             <span class="company">대원P&P</span>
+                             <span class="product-name">[대원P&P] 꽈배기끈</span>
+                           </div>
+                           <p class="price">600원 <span class="sale">40%</span></p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div><!-- //swiper-wrapper -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div></div>
+              </div><!-- //swiper -->
+        </div><!-- // carousel-slider-area-->
+    </section>
+    <section id="member-benefit-contentArea">
+      <div class="member-benefit">
+        <div class="benefit-title">
+          <span>키드키즈 회원혜택</span>
+          <div class="benefit-left">
+            <h2>e-아울렛</h2>
+            <button class="more benefit-more">e-아울렛 바로가기</button>
+          </div>
+        </div>
+        <div class="benefit-right">
+          <div class="benefit-box">
+            <div class="benefit-product"><img src="img/benefit/benefit1.png" alt="2024 신학기 교사 필수템! 코튼 원피스 앞치마"></div>
+            <div class="benefit-product-title">
+              <span class="top-title">2024 신학기 교사 필수템!</span>
+              <span class="bottom-title">코튼 원피스 앞치마</span>
+            </div>
+          </div>
+          <div class="benefit-box">
+            <div class="benefit-product"><img src="img/benefit/benefit2.png" alt="백팩과 캐리어가 하나로! 신학기 입학 선물"></div>
+            <div class="benefit-product-title">
+              <span class="top-title">백팩과 캐리어가 하나로!</span>
+              <span class="bottom-title">신학기 입학 선물</span>
+            </div>
+          </div>
+          <div class="benefit-box">
+            <div class="benefit-product"><img src="img/benefit/benefit3.png" alt="컬러풀한 여행을 위한 잇템! 레디백 미니 캐리어"></div>
+            <div class="benefit-product-title">
+              <span class="top-title">컬러풀한 여행을 위한 잇템!</span>
+              <span class="bottom-title">레디백 미니 캐리어</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <section id="special-day-contentArea">
+      <h2>특별한 날</h2>
+      <div class="special-day">
+        <div class = "kraft-wrap">
+          <div class="day-title-kraft">
+            <span>크래프트</span>
+            <button class="more kraft-more">크래프트 더 보러가기</button>
+          </div>
+          <div class="kraft-box-wrap">
+            <div class="kraft-box">
+              <div class="kraft-content">
+                <img src="img/spcialDay/kraft1.png" alt="졸업식·수료식 카드 만들기">
+              </div>
+              <div class="kraft-content-title">
+                <span>크래프트</span>
+                <span>졸업식·수료식 카드 만들기</span>
+              </div>
+            </div>
+            <div class="kraft-box">
+              <div class="kraft-content">
+                <img src="img/spcialDay/kraft2.png" alt="추억 담는 카메라 만들기">
+              </div>
+              <div class="kraft-content-title">
+                <span>크래프트</span>
+                <span>추억 담는 카메라 만들기</span>
+              </div>
+            </div>
+            <div class="kraft-box">
+              <div class="kraft-content">
+                <img src="img/spcialDay/kraft3.png" alt="졸업 사탕 트로피 만들기">
+              </div>
+              <div class="kraft-content-title">
+                <span>크래프트</span>
+                <span>졸업 사탕 트로피 만들기</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = "special-wrap">
+          <div class="day-title-special">
+            <span>특별한 날/ 절기</span>
+            <button class="more special-more">특별한 날 더 보러가기</button>
+          </div>
+          <div class="special-box-wrap">
+            <div class="special-box">
+              <div class="special-content">
+                <img src="img/spcialDay/special-day1.png" alt="세계 물의 날(3/22)">
+              </div>
+              <div class="special-content-title">
+                <span>특별의 날</span>
+                <span>세계 물의 날(3/22)</span>
+              </div>
+            </div>
+            <div class="special-box">
+              <div class="special-content">
+                <img src="img/spcialDay/special-day2.png" alt="경침(3/5)">
+              </div>
+              <div class="special-content-title">
+                <span>절기</span>
+                <span>경침(3/5)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="notice-contentArea">
+      <h2>키드키즈에서 전하는 소식을 만나보세요</h2>
+      <div class = "notice-wrap">
+        <div class="notice-top">
+          <button class="more notice-more">더 많은 소식 보러가기</button>
+        </div>
+        <div class="notice-box-wrap">
+          <div class="notice-box">
+            <span class="notice-bottom-news">News</span>
+            <span class="notice-title">설 연휴 고객센터 휴무 안내</span>
+            <span class="notice-date">2024.02.08</span>
+          </div>
+          <div class="notice-box">
+            <span class="notice-bottom-news">News</span>
+            <span class="notice-title">로렌차일드 전시 댓글 이벤트</span>
+            <span class="notice-date">2024.02.06</span>
+          </div>
+          <div class="notice-box">
+            <span class="notice-bottom-news">News</span>
+            <span class="notice-title">졸업식 이행시 이벤트</span>
+            <span class="notice-date">2024.02.01</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="more-services-contentArea">
+      <div class="more-services-carousel-2">
+        <h2>보다 많은 서비스 경험해보세요</h2>
+        <div class="carousel-slider-area2">
+          <div class="swiper more-services-Swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service1.png" alt="누리놀이">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>누리놀이</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service2.png" alt="K-TAP 아동기질검사">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>K-TAP 아동기질검사</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service3.png" alt="재무회계 KAS">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>재무회계 KAS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service4.png" alt="키드키즈 알림장">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>키드키즈 알림장</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service5.png" alt="평생교육원">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>평생교육원</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service6.png" alt="쇼핑몰">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>쇼핑몰</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service7.png" alt="월간유아">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>월간유아</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service8.png" alt="직무연수">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>직무연수</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service9.png" alt="아동관찰">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>아동관찰</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="slider-card">
+                  <div class="more-services-card-thumnail-box">
+                    <img src="img/more-service/service10.png" alt="예비교사">
+                  </div>
+                  <div class="more-services-card-title-box">
+                    <span>예비교사</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- //swiper-wrapper -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div><!-- //swiper -->
+        </div><!-- //carousel-slider-area2 -->
+      </div>
+    </section>
+    <footer>
+      
+    </footer>
   </div>
   <script src="js/swiper.js"></script>
-  <script src="js/weather.js"></script>
+  <script src="js/bookmark.js"></script>
 </body>
 </html>

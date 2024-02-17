@@ -1,0 +1,146 @@
+@charset "euc-kr";
+/* CSS Document */
+
+
+/* Common */
+html, body {
+    font-family: '돋움', Dotum, sans-serif;font-size:12px; -webkit-font-smoothing: antialiased; }
+
+body { 	margin:0px; padding:0px; border:0px; }
+
+.fleft{float:left;}
+.fright{float:right;}
+.alternative{z-index: -1;width: 0;height: 0;overflow: hidden;visibility: hidden;}
+.txtleft{text-align:left !important;}
+.txtcenter{text-align:center !important;}
+.txtright{text-align:right !important;}
+.txtbold{font-weight:bold !important;}
+.prelative{position:relative;}
+.pabsolute{position:absolute !important;}
+.line_height{ line-height:0px;}
+ul, li{ margin:0;}
+li img { vertical-align:middle; }
+.matop{ margin-top:40px;}
+.maleft{ margin-left:0px !important;}
+
+/* Layout */
+#main_area .container{position:relative;width:1024px;margin:0 auto; /* overflow:hidden; */ }
+#main_area .container-fluid{position:relative;width:100%;margin:0 auto;text-align:left;}
+
+
+
+
+#main_area .my_menu{ width:230px; height:264px; border-top: 1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; border-right:1px solid #e6e6e6; border-left:1px solid #e6e6e6;/* border:1px solid #e6e6e6; */ position:relative; overflow:hidden; margin-right:14px;}
+#main_area .my_menu h3{ padding:11px 10px 13px 10px; height:12px; border-right:1px solid #e6e6e6; }
+#main_area .my_menu .set{position: absolute;	right: 10px;	z-index: 1;	top: 10px;}
+#main_area .my_menu .m_pick{ width:114px; height:75px; border-top:1px solid #e6e6e6; border-right:1px solid #e6e6e6; float:left; }
+#main_area .my_menu .m_pick1{ width:115px; height:76px; border-bottom:1px solid #e6e6e6; border-right:1px solid #e6e6e6; float:left; }
+#main_area .my_menu .m_pick2{ width:114px; height:76px; border-bottom:1px solid #e6e6e6; float:left; }
+
+/*나만의메뉴 2018*/
+#main_area .my_menu_age{}
+#main_area .my_menu_age h3{background:#f2f2f2; height:36px; line-height:40px; padding:0;font-size:12px; border-bottom:1px solid #e6e6e6;  }
+#main_area .my_menu_age h3 span{margin-left:15px;}
+#main_area .my_menu .age_menu{padding:13px 13px 7px 13px; display:table; vertical-align:middle; margin-left:-7px;}
+#main_area .my_menu .age_menu li{ width:63px; height:61px; float:left; margin-left:7px; margin-bottom:9px;}
+#main_area .my_menu .age_menu li a{vertical-align:middle; background:url(../img/main2014/age_menu_bg.png); width:63px; height:61px; text-align:center; display:table-cell; text-decoration:none; color:#333;}
+#main_area .my_menu .age_menu li a:hover, #main_area .my_menu .age_menu li a.active{background:url(../img/main2014/age_menu_bg_on.png); color:#fff; font-weight:bold;}
+
+
+#main_area .my_menu_set{ width:230px;  border:1px solid #48a801; position:absolute; overflow:hidden; display:none; /* margin-left:10px; margin-top:40px; */ z-index:10; left:0px; }
+#main_area .my_menu_set h3{ padding:10px 10px 12px 10px; ; height:12px;    background:#48a801; }
+#main_area .my_menu_set .set{position: absolute;	right: 10px;	z-index: 1;	top: 10px;}
+#main_area .my_menu_set .m_pick{ width:114px; height:35px;   float:left; }
+#main_area .my_menu_set .m_pick1{ width:114px; height:35px;   float:left; }
+#main_area .my_menu_set .m_pick2{ width:115px; height:35px;  float:left; }
+
+#main_area .my_menu_set .btn{ margin:6px 0 0px  10px; float:left;}
+#main_area .my_menu_set .list { background-color:#FFF; padding-top:5px; padding-bottom:10px; }
+
+
+
+
+/*나만의 메뉴 설정*/
+#main_area .my_menu_set_age{width:305px;   border:1px solid  #e6e6e6; z-index:9999; left:0px; top:266px; background:#fff;}
+#main_area .my_menu_set_age h3{height:16px; padding-left:12px; line-height:9px; font-size:12px; color:#fff; }
+#main_area .my_menu_set_age .set_age_ul{padding:0;}
+#main_area .my_menu_set_age li{width:101px; border-left:1px solid #e5e5e5; float:left; border-bottom:1px solid #e5e5e5; font-size:11px; border-right:0;}
+#main_area .my_menu_set_age li.leftbor{border-left:0;}
+#main_area .my_menu_set_age li a{width:101px; height:28px; text-align:center; line-height:32px; display:inline-block; text-decoration:none; color:#333;}
+#main_area .my_menu_set_age li a:hover, #main_area .my_menu_set_age li a.active{background:#f5f5f5; color:#5cbc00;  font-weight:bold;}
+
+
+
+/*2020 수정*/
+#main_area.main_area2020{/*font-family: 'NotoSans';*/font-size:13px;font-family:'Malgun Gothic',  sans-serif;}
+#main_area.main_area2020 P, TD, BR{ /* font-family: 'NotoSans'; font-size:14px;*/ font-family:'Malgun Gothic',  sans-serif;  color:#333;font-weight:400; font-size:13px;}
+#main_area.main_area2020 .container, #main_area.main_area2020 .contents,  #main_area.main_area2020 .popular_edu, #main_area.main_area2020 #aca_maga_area, #main_area.main_area2020 #m_renew_2017, #main_area.main_area2020 .footer_re2019 .footer_company .footer_company_area, #main_area.main_area2020 #kidkids_main_banners
+, #main_area.main_area2020 #top_search_area{width:1170px;/*border:1px solid #000;*/}
+
+#main_area.main_area2020 .my_menu, #main_area.main_area2020 #login_box_contents{height: 315px;}
+
+
+/*#main_area.main_area2020 #login_box_bottom_info div{width:81px;}*/
+
+
+#main_area.main_area2020  .my_menu .age_menu{padding:0;margin-left:0;}
+#main_area.main_area2020 .my_menu .age_menu li{width:78.5px; height:88px;border-right:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; margin:0;}
+#main_area.main_area2020 .my_menu .age_menu li a{background:none;width:79px;text-align:center; height:88px;font-weight:600;font-size:13px;line-height:20px;}
+#main_area.main_area2020 .my_menu .age_menu li a:hover, #main_area.main_area2020 .my_menu .age_menu li a.active{background:none; color:#5CBC00; font-weight:600;}
+#main_area.main_area2020 .my_menu{border-right:0; border-bottom:0;}
+#main_area.main_area2020 .my_menu_age h3{height:46px; font-family: 'NotoSans';color:#000;line-height:43px;}
+#main_area.main_area2020 .my_menu .set{top:14px;}
+#main_area.main_area2020  .my_menu{width:240px;}
+
+
+
+
+
+
+
+@media screen and (min-width:0\0){
+    #main_area.main_area2020 .my_menu_age h3{line-height:50px;}
+    #main_area.main_area2020 .contents h3 a{margin-bottom:0px;}
+    .main_area2020#main_area .my_menu_age h3{font-weight:400;}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* kang2oon Reset CSS */
+/* Base */
+html,body{width:100%;height:100%;}
+html{overflow-y:scroll;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,p,button,table,tr,th,td,label,select{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+ul,ol,li{list-style:none;}
+img,fieldset{border:0;}
+label{cursor:pointer;}
+textarea{overflow:auto;}
+button,input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance: button;cursor: pointer;}
+input[type="checkbox"],input[type="radio"]{border:0;}
+svg:not(:root){overflow: hidden;}
+/* HTML5 display definitions */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+audio,canvas,progress,video{display:inline-block;vertical-align:baseline;}
+/* Clearfix */
+.clearfix:before,.clearfix:after{content:"";display:block;}
+.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0;}

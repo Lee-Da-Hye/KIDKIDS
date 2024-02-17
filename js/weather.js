@@ -3,7 +3,7 @@ const country = document.querySelector('#country');
 const area = document.querySelector('#area');
 const currentTemp = document.querySelector('#currentTemp');
 const currentDescription = document.querySelector('#currentDescription');
-const  maxTemp = document.querySelector('#maxTemp');
+const maxTemp = document.querySelector('#maxTemp');
 const minTemp = document.querySelector('#minTemp');
 const citybtn = document.querySelectorAll('.citybtn');
 
