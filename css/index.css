@@ -183,12 +183,13 @@ padding-top: 30px;
 #bookmark .bookmark-top > div,
 #bookmark .bookmark-bottom > div{display: grid; grid-template-columns: 1fr 1fr 1fr; place-items: center;}
 #bookmark .bookmark-top > div > span,
-#bookmark .bookmark-bottom > div > span{width: 80px;height: 80px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center;font-size: 0;}
+#bookmark .bookmark-bottom > div > span{width: 80px;height: 80px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center;/*font-size: 0;*/}
 #bookmark .bookmark-top > div > span > a,
 #bookmark .bookmark-bottom > div > span > a{
   width: 24px; height: 24px;
-  background: url(../img/bookmark/plus.svg) no-repeat center center / contain;
+  background-image: url(../img/bookmark/plus.svg) no-repeat center center / contain;
 }
+
 #bookmark .bookmark-grid-gap{
   display: grid;
   grid-row-gap: 15px;

@@ -438,6 +438,66 @@ $("#ozone").text('아주나쁨');
 }
 });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var clickedBtn = null; // 클릭된 버튼을 추적하는 변수
+
+    // Plus 버튼 클릭 시 메뉴 보이기
+    var plusBtns = document.querySelectorAll('.plus_btn');
+    plusBtns.forEach(function(btn, index) {
+        btn.addEventListener('click', function(e) {
+            document.getElementById('id_my_menu_set').style.display = 'block';
+            clickedBtn = btn; // 클릭된 버튼 업데이트
+            clickedBtn.setAttribute('data-index', index.toString()); // 클릭된 버튼의 인덱스 설정
+            e.preventDefault();
+        });
+    });
+
+    // 메뉴 클릭 시 메뉴 숨기고 버튼 내용 업데이트하기
+    var menuItems = document.querySelectorAll('#id_my_menu_set li a');
+    menuItems.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+          
+            var menuName = this.innerText;
+            document.getElementById('id_my_menu_set').style.display = 'none';
+
+            if (clickedBtn && !clickedBtn.innerText.trim()) {
+                clickedBtn.innerText = menuName;
+                // 로컬 스토리지에 저장하기
+                localStorage.setItem('plus_btn_' + clickedBtn.getAttribute('data-index'), menuName);
+                e.preventDefault();
+            }
+            
+        });
+    });
+
+    var set = document.querySelector('.set');
+
+    set.addEventListener('click', (e)=>{
+      document.getElementById('id_my_menu_set').style.display = 'none';
+      e.preventDefault();
+    })
+    // 페이지 로드 시 로컬 스토리지에서 저장된 메뉴를 불러와 바로가기 버튼에 적용하기
+    for (let i = 0; i < plusBtns.length; i++) {
+        const menu = localStorage.getItem(`plus_btn_${i}`);
+        if (menu) {
+            plusBtns[i].innerText = menu;
+        }
+    }
+});
+</script>
     </script>
 </body>
 </html>
