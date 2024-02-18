@@ -139,7 +139,7 @@
 /*bookmark*/
 #bookmark{background: var(--neutral--neutral-100); height: 493px; display: flex; justify-content: center; margin-top: 125px; position: relative; gap: 50px; align-items: center;}
 .bookPos{position: relative;}
-#bookmark > .bookmark1 >.bookmark-wrap, #bookmark > .bookmark2 >.bookmark-wrap,#bookmark > .bookmark3 >.bookmark-wrap{
+#bookmark .bookmark-wrap{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -162,39 +162,41 @@
 #bookmark #id_my_menu_set > .my_menu_set_title{text-align: center; display: flex; justify-content: space-between; height: 40px; align-items: center; padding: 10px; background: #5CBC00;}
 #bookmark  #id_my_menu_set ul {display: flex; flex-wrap: wrap; background-color: var(--primary--white);}
 #bookmark  #id_my_menu_set ul li{width: 120px; height:40px; display: flex; text-align: center; justify-content: center; align-items: center; border: 1px solid #ccc;}
-#bookmark .my_menu_set_btn{
-  display: flex; 
-  justify-content: center;
-}
+#bookmark .my_menu_set_btn{display: flex;justify-content: center;}
 #bookmark .my_menu_set_btn > a{ background: var(--primary--black); width: 100px; color: var(--primary--white); height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 30px;}
-
 #bookmark .my_menu_set_age > li:hover{background-color: var(--neutral--neutral-200); text-decoration: underline;}
+
 /*bookmark1*/
 
-#bookmark  .bookmark-title > .setting{
-  /*background: url(../img/bookmark/setting.svg) no-repeat;
-  font-size: 0;
-  width: 24px;
-  height: 24px;*/
-}
 #bookmark .bookmark-all{
 padding-top: 30px;
 }
-#bookmark .bookmark-top > div,
+#bookmark .bookmark-top > div ,
 #bookmark .bookmark-bottom > div{display: grid; grid-template-columns: 1fr 1fr 1fr; place-items: center;}
-#bookmark .bookmark-top > div > span,
-#bookmark .bookmark-bottom > div > span{width: 80px;height: 80px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center;/*font-size: 0;*/}
-#bookmark .bookmark-top > div > span > a,
-#bookmark .bookmark-bottom > div > span > a{
-  width: 24px; height: 24px;
-  background-image: url(../img/bookmark/plus.svg) no-repeat center center / contain;
+
+#bookmark .delete{
+  position: relative;
 }
+.remove_btn{
+  position: absolute;
+  top: -5px;
+  right: 0;
+  background-color: red;
+  height: 24px; width: 24px;
+  background: url(../img/bookmark/delete.svg) no-repeat right top / contain;
+}
+
+#bookmark .bookmark-top > div .plus_btn,
+#bookmark .bookmark-bottom > div .plus_btn{width: 80px;height: 80px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center;/*font-size: 0;*/ background: var(--primary--white);}
+
 
 #bookmark .bookmark-grid-gap{
   display: grid;
   grid-row-gap: 15px;
 }
 .bookmark-grid-gap .plus_btn_wrap> span:hover{background-color: #fff; cursor: pointer;}
+
+
 /*bookmark2*/
 #bookmark .bookmark-popular > ul{padding-top: 30px}
 #bookmark .bookmark-popul-top{margin-top: 10px;}
