@@ -28,11 +28,11 @@
 }
 .search-box-result .container > button{display: flex; justify-content: flex-end; font-size: 0; background: url(../img/header/delete.svg) no-repeat top 10px right 10px; width: 44px; height: 44px; position: absolute; right: 0;} 
 .btn-search{background: url(../img/header/search-sm.svg) no-repeat center; width: 44px; height: 44px; font-size: 0; position: absolute; right: 0;}
-.Recommended-search > h2,
-.popular-search > h2{font-size:var(--body--large--text-6xl--medium);font-weight:500; padding: 20px 20px ;}
-.Recommended-search > ul,
-.popular-search > ul{display: flex; padding: 20px; gap: 10px;}
-.Recommended-search > ul > li,
+.recommended-search > h2,
+.popular-search > h2{font-size:var(--body--large--text-6xl--medium);font-weight:500; padding: 20px 20px 10px 20px ;}
+.recommended-search > ul,
+.popular-search > ul{display: flex; padding: 10px 20px; gap: 10px;}
+.recommended-search > ul > li,
 .popular-search > ul > li{font-size: var(--body--normal--text-6xl--medium);}
 .popular-search > ul > li{width: 100px; height: 30px; background-color: var(--neutral--neutral-300); border-radius: 100px; display: flex; justify-content: center; align-items: center; }
 .popular-search > ul > li > span{padding-right: 10px;}
@@ -132,7 +132,7 @@
  display: flex;
  align-items: center;
  color:var(--primary--black);
- font-size: var(--body--normal--text-6xl--bold);
+ font-size: var(--body--large--text-6xl--semibold);
  font-weight: bold;
  border: 1px solid #5CBC00;
  border-radius: 8px;
@@ -384,7 +384,9 @@ padding-top: 30px;
 .recom-tab-Swiper .swiper-button-next,
 .recom-tab-Swiper .swiper-rtl .swiper-button-prev,
 .product-tab-Swiper .swiper-button-next,
-.product-tab-Swiper .swiper-rtl .swiper-button-prev{
+.product-tab-Swiper .swiper-rtl .swiper-button-prev,
+.more-services-Swiper .swiper-button-next,
+.more-services-Swiper .swiper-rtl .swiper-button-prev{
   width: 30px;height: 50px;
   background-color: #fff;
 
@@ -392,7 +394,10 @@ padding-top: 30px;
 .recom-tab-Swiper .swiper-button-next:hover,
 .recom-tab-Swiper .swiper-rtl .swiper-button-prev:hover,
 .product-tab-Swiper .swiper-button-next:hover,
-.product-tab-Swiper .swiper-rtl .swiper-button-prev:hover{
+.product-tab-Swiper .swiper-rtl .swiper-button-prev:hover,
+.more-services-Swiper .swiper-button-next:hover,
+.more-services-Swiper .swiper-rtl .swiper-button-prev:hover
+{
   width: 30px;height: 50px;
   background-color: var(--primary--primary-600);
 
@@ -400,7 +405,9 @@ padding-top: 30px;
 .recom-tab-Swiper .swiper-button-prev,
 .recom-tab-Swiper .swiper-rtl .swiper-button-next,
 .product-tab-Swiper .swiper-button-prev,
-.product-tab-Swiper .swiper-rtl .swiper-button-next
+.product-tab-Swiper .swiper-rtl .swiper-button-next,
+.more-services-Swiper .swiper-button-prev,
+.more-services-Swiper .swiper-rtl .swiper-button-next
 {
   width: 30px;height: 50px;
   background-color: #fff;
@@ -408,7 +415,9 @@ padding-top: 30px;
 .recom-tab-Swiper .swiper-button-prev:hover,
 .recom-tab-Swiper .swiper-rtl .swiper-button-next:hover,
 .product-tab-Swiper .swiper-button-prev:hover,
-.product-tab-Swiper .swiper-rtl .swiper-button-next:hover
+.product-tab-Swiper .swiper-rtl .swiper-button-next:hover,
+.more-services-Swiper .swiper-button-prev:hover,
+.more-services-Swiper .swiper-rtl .swiper-button-next:hover
 {
   width: 30px;height: 50px;
   background-color: var(--primary--primary-600);
@@ -416,7 +425,9 @@ padding-top: 30px;
 .recom-tab-Swiper .swiper-button-next:after,
 .recom-tab-Swiper .swiper-rtl .swiper-button-prev:after,
 .product-tab-Swiper .swiper-button-next:after,
-.product-tab-Swiper .swiper-rtl .swiper-button-prev:after{
+.product-tab-Swiper .swiper-rtl .swiper-button-prev:after,
+.more-services-Swiper .swiper-button-next:after,
+.more-services-Swiper .swiper-rtl .swiper-button-prev:after{
   content: '';
   background: url(../img/carousel/next.svg) no-repeat center center;
   width: 44px;
