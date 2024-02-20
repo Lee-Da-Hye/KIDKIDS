@@ -1,58 +1,59 @@
-const API_KEY = '42d5026beb33086787247c76ab037104'
-const country = document.querySelector('#country');
-const area = document.querySelector('#area');
-const currentTemp = document.querySelector('#currentTemp');
-const currentDescription = document.querySelector('#currentDescription');
-const maxTemp = document.querySelector('#maxTemp');
-const minTemp = document.querySelector('#minTemp');
-const citybtn = document.querySelectorAll('.citybtn');
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 APP KEY를 넣으시면 됩니다."></script>
 
-citybtn.forEach((ele)=>{
-  ele.addEventListener('click', (e)=> {
-    getCityWeather(e)})
-}
-)
 
-//현재 위치를 받아와서 lat lon 값을 넘기면서 getCurrentWeather 호출
-const getCurrentLocation = ()=>{
-  navigator.geolocation.getCurrentPosition((position)=>{
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
+const API_KEY = 'LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D'
+const myArea = document.querySelector('#my_area');
+//const area = document.querySelector('#area');
+const dustStatus = document.querySelector('#status');
+const dustImg = document.querySelector('#dust_img');
+const ozone = document.querySelector('#ozone');
+const ozoneImg = document.querySelectorAll('#ozone_img');
 
-    getCurrentWeather(lat,lon)
-  })
-}
-//requestGeolocationPermission()
 
-//http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key}
 
-const getCurrentWeather = async(lat,lon) =>{
-  let url = new URL(`https://api.openweathermap.org/data/2.5/air_pollution?lat =${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=kr`);
-  let response = await fetch(url);
-  let data = await response.json();
-  render(data);
 
-}
-const getCityWeather = async(e)=>{
-
-  let city = e.target.dataset.cityname;
-  //url ''이렇게 하면 객체로 못 받음. 그래서 new URL로 만들어줘야함.
-  //d위도 경도 대신 시티이름 적고 시티 이름 누를 때마다 다르게 하기 위해 html에 데이터 넣어놓음. 첫글자만 대문자로 적으면 됨. 
-  let url = new URL(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=kr`)
-
-  let response = await fetch(url);
-  let data = await response.json();
-  console.log(data)
-  render(data)
+$(document).ready(function(){
+  if (navigator.permissions && navigator.permissions.query) {
+  navigator.permissions.query({name: 'geolocation'}).then(function (result) {
+  if (result.state == 'granted') {
+    function success(position) {
+        console.log("1");
+        
+        var geocoder = new kakao.maps.services.Geocoder();
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var callback = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                var my_area = result[0]['address']['region_1depth_name'];
+                if (my_area == '경기') {
+                    my_area = '경기남부';
+                }
+                get_area(my_area);
+            }
+        }
+        var coord = new kakao.maps.LatLng(lat, lon);
+        geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
   
-}
+    }
+    navigator.geolocation.getCurrentPosition(success);
+    } else{
+      get_area('경기남부');
+    }
+  });
+  }
+  
+  });
 
-const render = (data)=>{
-  //이름.키이름.
-  country.innerText = data.sys.country;
-  currentDescription.innerText = data.weather[0].description;
-  area.innerText = data.name;
-  currentTemp.innerText =data.main.temp;
-  maxTemp.innerText = data.main.temp_max;
-  minTemp.innerText = data.main.temp_min;
-}
+
+  function get_area(area){
+    var my_area = area;
+    $.ajax({
+      url: `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?serviceKey=${API_KEY }&returnType=json&numOfRows=100&pageNo=1&stationName=%EC%A2%85%EB%A1%9C%EA%B5%AC&dataTerm=DAILY&ver=1.0`,
+      success: function (result){
+        console.log(result);
+        let item = result.response.body.items[3];
+        let content = `날짜는 ${item.dataTime} 미세먼지 농도는 ${item.pm10Value} 오존농도는  ${item.o3Value} 입니다.`;
+        $('.result').text(content);
+      },
+  });
+    }

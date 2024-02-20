@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미세먼지 정보</title>
+</head>
+<body>
+
+<div id="airQualityInfo"></div>
+
+<script>
+window.addEventListener('DOMContentLoaded', async () => {
+    const API_KEY = 'LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D'
+    const serviceKey = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${API_KEY}&returnType=json&numOfRows=100&pageNo=1&sidoName=%EC%84%9C%EC%9A%B8&ver=1.0`;
+    const sidoName = '서울';
+  
+    let params = new URLSearchParams({
+        serviceKey: serviceKey,
+        returnType: 'json',
+        numOfRows: '100',
+        pageNo: '1',
+        sidoName: sidoName,
+        ver: '1.0',
+
+    });
+    const url = `${serviceKey}${params.toString()}`;
+    
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data)
+        const airItem = {
+            sidoName: data.response.body.items[0]['sidoName'],
+            pm10: data.response.body.items[0]['pm10Value'],
+            pm25: data.response.body.items[0]['pm25Value']
+        };
+
+        const badAir = [];
+
+        if (airItem.pm10 <= 30) {
+            badAir.push("좋음😀");
+        } else if (airItem.pm10 > 30 && airItem.pm10 <= 80) {
+            badAir.push("보통😐");
+        } else {
+            badAir.push("나쁨😡");
+        }
+
+        if (airItem.pm25 <= 15) {
+            badAir.push("좋음😀");
+        } else if (airItem.pm25 > 15 && airItem.pm10 <= 35) {
+            badAir.push("보통😐");
+        } else {
+            badAir.push("나쁨😡");
+        }
+
+        const airQualityInfo = document.getElementById('airQualityInfo');
+        airQualityInfo.innerHTML = `
+            <p>지역: ${airItem.sidoName}</p>
+            <p>미세먼지 ${badAir[0]} 초미세먼지 ${badAir[1]} 입니다.</p>
+        `;
+    } catch (error) {
+        console.error(error);
+    }
+});
+</script>
+
+</body>
+</html>

@@ -232,7 +232,6 @@
                     <li class="safe"><a href="//www.kidkids.net/eduinfo_new/safety_idx.htm" >안전교육</a></li>
                     <li class="gatong"><a href="https://iyua.kidkids.net/newsLetter/" >가정<br/>통신문</a></li>
                     <li class="mbest"><a href="//www.kidkids.net/banner/goBanner.htm?serial=13795" >이달의<br/>추천자료</a></li>
-                    <!--							<li class="nuri"><a href="--><!--/eduinfo_new/online_edu.htm?age=&m=01" >누리교실</a></li>-->
                     <li class="confidence"><a href="//www.kidkids.net/eduinfo_new/play_confidence/">놀이<br/>자신감</a></li>
                     <li class="student"><a href="//www.kidkids.net/student/" >예비<br/>교사방</a></li>
                     <li class="base"><a href="//www.kidkids.net/eduinfo_new/epgm_list.htm?cal_id=86" >기본<br/>생활습관</a></li>
@@ -338,33 +337,7 @@
             }
         }
 
-        function fast_class_setup_page_open(){
-                $("#fast_class_setup_page").fadeIn(300);
-            }
-            function fast_class_setup_page_close(){
-                $("#fast_class_setup_page").hide();
-            }
-            function fast_class_setup_page_age_save(){
-                var age = $(".fast_class_setup_page_age:checked").val();
-                var cnt = $(".select_fast_class_favor_btn").length;
-                var select_btn = new Array();
-                $(".select_fast_class_favor_btn").each(function(){
-                    select_btn.push($(this).attr("idx"));
-                });
-                select_btn.join(",");
-                if(cnt == 6){
-                    setCookie("fast_class_age", age, 30);
-                    setCookie("fast_class_btn", select_btn, 30);
 
-                    $("#fast_class_age").val(age);
-                    $("#fast_class_btn").val(select_btn);
-                    //fast_class_setup_page_close();
-                    //set_age_menu($("#fast_class_ready_contents_age img:eq("+$("#fast_class_age").val()+")"));
-                    window.location.reload();
-                }else{
-                    alert("자주가는 메뉴 6개를 선택해 주세요.");
-                }
-            }
 
 
             $(document).ready(function(){
