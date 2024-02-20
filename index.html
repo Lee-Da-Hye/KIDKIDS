@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>키드키즈</title>
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
   <div class="wrapper">
@@ -461,11 +462,32 @@
         </nav>
       </div>
     </header>
-    <section id="mainBanner">
-      <a href="#">
-        <div class="slide1"><p class="blind">졸업&수료 만들기 축하해요 목걸이 & 상장</p></div>
-      </a>
-    </section>
+    <div class="mainbanner">
+      <div class="swiper banner-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide slider">
+            <a href="#">
+              <img src="img/banner/banner1.png" alt="새 친구들, 새로운 환경 우리원 만들기 키드키즈몰">
+            </a>
+          </div>
+          <div class="swiper-slide slider">
+            <a href="#">
+              <img src="img/banner/banner2.png" alt="깐깐하게 고른 베스트 시작부터 완벽! 신학기 교재 키드키즈몰 ">
+            </a>
+          </div>
+          <div class="swiper-slide slider">
+            <a href="#">
+              <img src="img/banner/banner3.png" alt="교사의 소질과 특성 알고 싶다면? 교사 인적성검사 지금 신청하세요! 자세히보기">
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <!-- navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
     <section id="teacher-life">
       <h2 class="titlefs">슬기로운 교사생활</h2>
       <ul>
@@ -496,7 +518,7 @@
         <li>
           <a href="#">
             <span><img src="img/teacher-life/k-tap.png" alt="K-TAP 아동기질검사"></span>
-            <span class="teacher-title">K-TAP 아동기질검사</span>
+            <span class="teacher-title">K-TAP <br> 아동기질검사</span>
           </a>
         </li>
         <li>
@@ -717,92 +739,108 @@
             <div class="swiper recom-tab-Swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel1.png" alt="절대 형님이 되지 않을테야">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel1.png" alt="절대 형님이 되지 않을테야">
+                      </div>
+                      <div class="card-title-box">
+                         <span class="recom-name">동화</span>
+                         <span class="recom-category">절대 형님이 되지 않을거야</span>
+                      </div>
                     </div>
-                    <div class="card-title-box">
-                       <span class="recom-name">동화</span>
-                       <span class="recom-category">절대 형님이 되지 않을거야</span>
-                    </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel2.png" alt="헤어지기싫어요">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel2.png" alt="헤어지기싫어요">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">이야기나누기</span>
+                        <span class="recom-category">헤어지기싫어요</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">이야기나누기</span>
-                      <span class="recom-category">헤어지기싫어요</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel3.png" alt="초등학교의 다양한 공간">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel3.png" alt="초등학교의 다양한 공간">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">이야기나누기</span>
+                        <span class="recom-category">초등학교의 다양한 공간</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">이야기나누기</span>
-                      <span class="recom-category">초등학교의 다양한 공간</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel4.png" alt="동생들에게 전하고 싶은 이야기">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel4.png" alt="동생들에게 전하고 싶은 이야기">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">이야기나누기</span>
+                        <span class="recom-category">동생들에게 전하고 싶은 이야기</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">이야기나누기</span>
-                      <span class="recom-category">동생들에게 전하고 싶은 이야기</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel5.png" alt="역시 아기 돌보기는 쉽지 않군!">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel5.png" alt="역시 아기 돌보기는 쉽지 않군!">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">모아이AI</span>
+                        <span class="recom-category">역시 아기 돌보기는 쉽지 않군!</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">모아이AI</span>
-                      <span class="recom-category">역시 아기 돌보기는 쉽지 않군!</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel6.png" alt="초능력이 필요한 지금!">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel6.png" alt="초능력이 필요한 지금!">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">예비초등 준비능력</span>
+                        <span class="recom-category">초능력이 필요한 지금!</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">예비초등 준비능력</span>
-                      <span class="recom-category">초능력이 필요한 지금!</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel7.png" alt="명탐정과 언어놀이를?!">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel7.png" alt="명탐정과 언어놀이를?!">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">매일언어</span>
+                        <span class="recom-category">명탐정과 언어놀이를?!</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">매일언어</span>
-                      <span class="recom-category">명탐정과 언어놀이를?!</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
                 <div class="swiper-slide">
-                  <div class="slider-card">
-                    <div class="card-thumnail-box">
-                      <img src="img/carousel/carousel8.png" alt="이제 슬슬 준비하셔야죠!">
+                  <a href="#">
+                    <div class="slider-card">
+                      <div class="card-thumnail-box">
+                        <img src="img/carousel/carousel8.png" alt="이제 슬슬 준비하셔야죠!">
+                      </div>
+                      <div class="card-title-box">
+                        <span class="recom-name">신학기 환경구성</span>
+                        <span class="recom-category">이제 슬슬 준비하셔야죠!</span>
+                     </div>
                     </div>
-                    <div class="card-title-box">
-                      <span class="recom-name">신학기 환경구성</span>
-                      <span class="recom-category">이제 슬슬 준비하셔야죠!</span>
-                   </div>
-                  </div>
+                  </a>
                 </div>
               </div><!-- //swiper-wrapper -->
               <div class="swiper-button-prev"></div>
@@ -814,7 +852,7 @@
       <div class="recom-song">
 
       </div>
-      <div id="dust" class="dust_new">
+      <!-- <div id="dust" class="dust_new">
         <h1>오늘의 미세먼지는?</h1>
         <div class="dust_new_box">
           <h2 class="my_area">지역</h2>
@@ -833,7 +871,7 @@
             <img src="" class="dust_new_icon" id="ozone_img" alt=""/>
           </div>
           </div>
-        </div>
+      </div> -->
       
     </section>
     <section id="ad2">
@@ -1079,7 +1117,7 @@
     </section>
     <section id="more-services-contentArea">
       <div class="more-services-carousel-2">
-        <h2>보다 많은 서비스 경험해보세요</h2>
+        <h2 class="titlefs">보다 많은 서비스 경험해보세요</h2>
         <div class="carousel-slider-area2">
           <div class="swiper more-services-Swiper">
             <div class="swiper-wrapper">
@@ -1190,8 +1228,37 @@
         </div><!-- //carousel-slider-area2 -->
       </div>
     </section>
-    <footer>
-      
+    <footer id="footer">
+        <!-- <div class="footer-company ">
+          <div class="footer-company-area">
+            <div class="footer-company">
+              <ul class="">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">홍보센터</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#"><b>개인정보 처리방침</b></a></li>
+                <li><a href="#">제휴문의</a></li>
+                <li><a href="#">광고문의</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#"><b>서비스 전체보기</b></a></li>
+              </ul>
+              <div class="footer-company-add">
+                <ul class="">
+                  <li>이케이 주식회사 대표이사 : 이희주</li>
+                  <li>경기도 용인시 기흥구 기흥로 58 기흥ICT밸리 B동 29층</li>
+                  <li>대표전화 : 02-5880-115</li>
+                  <li>E-MAIL : KIDKIDS@KIDKIDS.NET</li>
+                </ul>
+                <ul class="">
+                  <li>사업자등록번호 : 214-86-51854</li>
+                  <li>통신판매업 신고 : 제 2021-용인기흥-2008호</li>
+                  <li>직업제공사업 신고 : 서울청 제2012-29호</li>
+                  <li><b>ⓒ EK Corp.</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> -->
     </footer>
   </div>
   <!--
@@ -1200,7 +1267,7 @@
   </script>-->
   
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
   <script src="js/swiper.js"></script>
   <script src="js/weather.js"></script>
   <script src="js/bookmark.js"></script>
