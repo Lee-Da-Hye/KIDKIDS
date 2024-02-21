@@ -8,6 +8,9 @@
 
 #header .header-top-menu{height: 32px;}
 #header .header-top-menu .utility{display: flex; justify-content: flex-end; padding-right: 56px; padding-top: 7px; gap: 24px; font-size: var(--body--small--text-6xl--regular, 12px);}
+#header .header-top-menu .utility > li:hover > a{
+  text-decoration: underline;
+}
 #header .logo > a {display: block; width: 272px;}
 
 /*header-middle-menu  */
@@ -281,12 +284,16 @@ padding-top: 30px;
 
 
 /*bookmark2*/
+#bookmark .bookmark-data{text-align: center; padding-top: 30px;}
+#bookmark .bookmark-data > p:first-child{padding-bottom: 10px;}
 #bookmark .bookmark-popular > ul{padding-top: 30px}
 #bookmark .bookmark-popul-top{margin-top: 10px;}
 #bookmark .bookmark-popul-top > div{display: grid; grid-template-columns: 1fr 2fr 1fr; place-items: center;}
-#bookmark .bookmark-popul-top > div > span{width: 90px;height: 40px; border-radius: 40px; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; background-color: var(--primary--white); }
-#bookmark .bookmark-data{text-align: center; padding-top: 30px;}
-#bookmark .bookmark-data > p:first-child{padding-bottom: 10px;}
+#bookmark .bookmark-popul-top > div > span > a{width: 90px;height: 40px; border-radius: 40px; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; background-color: var(--primary--white); }
+#bookmark .bookmark-popul-top > div> span:hover > a{
+  background-color: var(--neutral--neutral-300);
+}
+
 #bookmark .bookmark-popular{padding-top: 10px;}
 .more{font-size: var(--body--normal--text-6xl--medium); display: flex; align-items: center; margin-top: 50px; color: var(--neutral--neutral-600);}
 .more:after{content: ''; background: url(../img/bookmark/chevron-right.svg) no-repeat 5px 5px ; display: inline-block; height: 20px; width: 12px;}
@@ -302,11 +309,19 @@ padding-top: 30px;
 }
 #bookmark .bookmark-safe > ul{padding-top: 30px}
 #bookmark .bookmark-safe-top > div{display: grid; grid-template-columns: 1fr 1fr; place-items: center;}
-#bookmark .bookmark-safe-top > div > span{width: 100px;height: 40px; border-radius: 40px; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; background-color: var(--primary--white, #fff); }
+#bookmark .bookmark-safe-top > div > span > a{width: 100px;height: 40px; border-radius: 40px; border: 1px solid #fff; display: flex; justify-content: center; align-items: center; background-color: var(--primary--white, #fff); }
+#bookmark .bookmark-safe-top > div > span:hover > a{background-color: var(--neutral--neutral-300);}
 #bookmark .bookmark-safe-top {
   margin-top: 10px;
 }
 
+/* bookmark:hover */
+.path-hover1 path,
+.path-hover2 path,
+.path-hover3 path{transition: fill 0.3s ease;}
+.path-hover1 path{fill: #a8d177;  }
+.path-hover2 path{fill: #3f9bee;}
+.path-hover3 path{fill: #e9c02f;}
 
 /*recom-card*/
 #contentArea{
