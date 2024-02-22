@@ -47,6 +47,28 @@ dep2Link.forEach(function(ele){
 })
 
 
+//섹션 1의 슬라이더 bxslider
+$(document).ready(function(){
+  $(".sliderAd").bxSlider({
+    auto: true,
+    mode:'fade',
+    pager: false,
+    autoControls: false,
+    autoControlsCombine: true,
+    autoHover:true,
+  
+  
+    onSlideBefore:function($slideElement, oldIndex, newIndex){
+      //슬라이드 넘어가기 직전
+      $slideElement.children('img').removeClass('on')
+    },
+    onSlideAfter:function($slideElement, oldIndex, newIndex){
+      $slideElement.children('img').addClass('on');
+      $('.count').text(newIndex+1);
+    },
+  })
+});
+
 
 
 

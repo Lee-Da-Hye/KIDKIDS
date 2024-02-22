@@ -4,9 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>키드키즈</title>
+  <!--swiper 라이브러리 연결-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!--제이쿼리 라이브러리 연결-->
+  <script src="libs/jquery-3.4.1.min.js"></script>
+  <!--bxSlider-->
+  <script src="libs/bxslider/jquery.bxslider.min.js"></script>
+  <link href="libs/bxslider/jquery.bxslider.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -94,23 +99,21 @@
             </div>
           </div>
         </div>
-        <div class="header-ad">
-          <ul id="ad-list">
-            <li><a href="#"><img src="img/header/header-ad1.png" alt="지금 인기있는 역할놀이 BEST 50"></a></li>
-            <li><a href="#"><img src="img/header/header-ad2.png" alt="2월의 추천놀이 추억 네컷"></a></li>
-            <li><a href="#"><img src="img/header/header-ad3.png" alt="원뿔원 is BACK 멀티누리회원 1+1"></a></li>
-            <li><a href="#"><img src="img/header/header-ad4.png" alt="우리 원과 친구 친구 소개 북"></a></li>
-            <li><a href="#"><img src="img/header/header-ad5.png" alt="졸업식 패키지로 행사 준비 한번에!"></a></li>
+        <div class="header-top-slider">
+          <ul class="sliderAd">
+            <li><a href="#"><img src="img/header/top-main1.png" alt="지금 인기 있는 놀이 BEST 50"></a></li>
+            <li><a href="#"><img src="img/header/top-main2.png" alt="우리 원과 친구 친구 소개북북"></a></li>
+            <li><a href="#"><img src="img/header/top-main3.png" alt="2월의 추억놀이 추억 네컷"></a></li>
+            <li><a href="#"><img src="img/header/top-main4.png" alt="보수교육 추천하면 스타벅스 아이스 아메리카노"></a></li>
           </ul>
-          <div id="ad-button">
-            <a href="#" id="prev">이전</a>
-            <a href="#" id="next">이후</a>
-            <p id="ad-num">01/05</p>
-          </div>
-          <div id="ad-pause">
-            <button><img src="img/header/pause-circle.png" alt="pause"></button>
-          </div>
+            <div class="slider_num">
+              <p>
+                <span class="count">1</span>
+                <span>4</span>
+              </p>
+            </div>
         </div>
+        
       </div>
       <div class="header-contents">
         <nav>
@@ -1253,7 +1256,7 @@
       </div>
     </section>
     <footer id="footer">
-        <!-- <div class="footer-company ">
+        <div class="footer-company ">
           <div class="footer-company-area">
             <div class="footer-company">
               <ul class="">
@@ -1282,7 +1285,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div> 
     </footer>
   </div>
   <script src="js/swiper.js"></script>

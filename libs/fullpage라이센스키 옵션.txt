@@ -1,0 +1,1 @@
+licenseKey: 'OPEN-SOURCE-GPLv3-LICENSE'
