@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>날씨예보</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="dust">
+        <h1>날씨예보</h1>
+        <div id="dustStatus">
+            <h2 id="location">지역</h2>
+            <p id="dustStatusText">미세먼지 농도: </p>
+            <div id="imageContainer">
+              <img id="statusImage1" src="" alt="날씨 상태 이미지">
+          </div>
+            <p id="ozoneStatusText">오존 농도: </p>
+            <div id="imageContainer">
+                <img id="statusImage2" src="" alt="날씨 상태 이미지">
+            </div>
+        </div>
+    </div>
+
+<script>
+$(document).ready(function() {
+    var serviceKey = 'LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D';
+    var apiUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty`;
+
+    let params = {
+        serviceKey: serviceKey,
+        numOfRows: '1',
+        pageNo: '1',
+        dataTerm: 'MONTH',
+        ver: '1.3',
+        stationName: '마포구',
+        returnType: 'json'
+    };
+
+    $.ajax({
+        url: airUrl,
+        method: 'GET',
+        data: params,
+        success: function(response) {
+            const airItem = {
+                pm10: response.response.body.items[0].pm10Value,
+                pm25: response.response.body.items[0].pm25Value
+            };
+            
+            // 미세먼지 및 초미세먼지 이미지 업데이트
+            updateStatusImage(airItem.pm10, airItem.pm25);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+});
+
+function updateStatusImage(pm10, pm25) {
+    var imageUrl1 = getImageUrl(pm10);
+    var imageUrl2 = getImageUrl(pm25);
+    $('#statusImage1').attr('src', imageUrl1);
+    $('#statusImage2').attr('src', imageUrl2);
+}
+
+function getImageUrl(value) {
+    if (value <= 30) {
+        return "img/weather/good.png"; // 좋음 상태 이미지
+    } else if (value <= 80) {
+        return "img/weather/normal.png"; // 보통 상태 이미지
+    } else {
+        return "img/weather/bad.png"; // 나쁨 상태 이미지
+    }
+}
+</script>
+
+</body>
+</html>
