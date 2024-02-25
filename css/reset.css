@@ -59,3 +59,8 @@ a{text-decoration: none; color: inherit;}
 button{background-color: inherit; border: none; box-shadow: none; border-radius: 0; padding: 0; cursor: pointer;  }
 
 input::-webkit-search-results-decoration, input::-webkit-search-results-button, input::-webkit-search-cancel-button,input::-webkit-search-decoration{display: none;}
+
+.clearfix:before,.clearfix:after{content:"";display:block;}
+.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0;}
+.fleft{float:left;}
+.fright{float:right;}

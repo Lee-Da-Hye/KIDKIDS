@@ -15,7 +15,13 @@ btnClose.addEventListener('click', ()=>{
   searchInput.classList.remove('active');
   searchResult.style.display = 'none';
 })
-
+// 다른 곳을 클릭했을 때 닫히도록 설정
+document.addEventListener("click", function(event) {
+  if (!searchInput.contains(event.target)) {
+    searchInput.classList.remove('active');
+    searchResult.style.display = 'none';
+  }
+});
 
 const gnb = document.querySelector('.gnb');
 const depth1 = gnb.querySelectorAll('li'); //  gnb 하위의 li 요소를 모두 찾음

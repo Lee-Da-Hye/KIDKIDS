@@ -3,6 +3,7 @@
 	font-display: swap;
 	src: local('Pretendard Medium'), url(../assets/fonts/woff/Pretendard-Medium.woff) format('woff');}
 
+body{overflow-x: hidden;overflow-y: auto;}
   .titlefs{font-size: var(--title--lg--text-6xl--semibold); font-weight: 600; }
 /* header-top-menu */
 
@@ -495,6 +496,15 @@ padding-top: 30px;
 }
 /* ad2 */
 #ad2{display: flex; justify-content: center; gap: 37px; margin-top: 100px;}
+#ad2 > div > a{position: relative; display: block;}
+#ad2 .ad2-title{position: absolute; display: flex; flex-direction: column; align-items: center; top: 30%;
+  transform: translateX(50%);}
+  #ad2 .ad2-title >span:nth-child(1){
+    color: var(--primary--primary-600); text-decoration: underline; padding-bottom: 10px; font-size: var(--title--small--text-6xl--medium);	font-weight: 500;
+  }
+  #ad2 .ad2-title >span:nth-child(2){
+    font-size: var(--title--xl--text-6xl--semibold); font-weight: 600;
+  }
 
 /* #shopping-contentArea */
 #shopping-contentArea{
@@ -582,4 +592,85 @@ padding-top: 30px;
 #more-services-contentArea > .more-services-carousel-2{max-width: 1200px; margin: auto;}
 #more-services-contentArea > .more-services-carousel-2 > h2{margin-bottom: 30px;}
 
-#footer{height: 400px; background-color: var(--neutral--neutral-500);margin-top: 48px;}
+#footer{height: 200px; background-color: var(--neutral--neutral-100);margin-top: 48px;}
+
+
+/* footer */
+.footer-company{margin: 0 auto;padding-top: 20px; color: var(--neutral--neutral-500); text-align:center; max-width: 1200px; font-size: var(--body--normal--text-6xl--medium);}
+.footer-company > ul{display: flex; gap: 10px;}
+.footer-company-add{padding-top: 20px;}
+.footer-company-add > ul{display: flex; gap: 10px;}
+.footer-company li{position: relative;}
+.footer-company li::after{content: ''; position: absolute;display: inline-block;
+  width: 1px;height: 15px;background-color: var(--neutral--neutral-400); right: -5px; }
+.footer-company li:last-child::after{display: none;}
+.footer-company .footer-info-b{padding-top: 8px;}
+
+.footer-company .selectbox {
+  position: relative;
+  background-color: #fff;
+  display:flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  min-width: 200px;
+  padding:10px 0px;
+  border:1px solid #333;
+}
+
+.footer-company .selectbox .title {
+  font-size: var(--title--small--text-6xl--semibold);
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.footer-company .selectbox .info-container {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  bottom: calc(100% + 5px); /* 드롭다운이 오른쪽 끝에서 열리도록 수정 */
+  right: 0; /* 드롭다운이 오른쪽 끝에서 열리도록 수정 */
+}
+
+.footer-company .selectbox .info-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-company .selectbox .info-container ul li {
+  padding: 10px 5px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--body--normal--text-6xl--medium);
+  border-bottom: 1px solid #ccc;
+}
+.footer-company .selectbox .info-container ul li:hover {
+  background-color: #ddd;
+}
+
+
+.footer-company .selectbox .info-container.show {
+  display: block;
+}
+
+.footer-company  .title img {
+  transition: 0.5s;
+}
+.footer-company  .title img.show {
+  transform: rotate(-180deg);
+}
+
+.footer-company .footer-company-r .offical_site{
+  display: flex;
+  gap: 10px;
+}
+
+.footer-company .footer-company-r .offical_site li::after{display: none;}
+footer .award{background: var(--neutral--neutral-300); margin: 14px 0px;  width: 100%; padding: 5px}
+footer .award ul {display: flex; justify-content: center; gap: 40px;margin:14px 0px 18px 0px; }
+
