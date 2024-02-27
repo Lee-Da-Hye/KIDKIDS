@@ -354,12 +354,7 @@ padding-top: 30px;
   display: flex;
 }
 .recom-carousel-1{min-width: 986px;}
-.recom-r{min-width:185px; margin-left: 12px;}
-.recom-r #dust{text-align: center;}
-.recom-r #dust > h1{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600;}
-.recom-r .status-wrap{display: flex;}
-.recom-r #dustStatus{margin-top: 10px;}
-.recom-r #location{text-align: center; margin-bottom: 10px;}
+
 .carousel-title{text-align: center; display: flex; justify-content: space-between; margin-bottom: 10px;}
 .carousel-title > span{
   margin-top: 50px;
@@ -502,6 +497,19 @@ padding-top: 30px;
 .product-tab-Swiper .swiper-rtl .swiper-button-next:hover:after{
   background-image:url(../img/carousel/prev.svg);
 }
+
+/* dust */
+
+.recom-r{min-width:185px; margin-left: 12px;}
+.recom-r #dust{text-align: center;}
+.recom-r #dust > h1{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600;}
+.recom-r .status-wrap{display: flex; justify-content: center; gap: 10px;}
+.recom-r #dustStatus{margin-top: 10px;}
+.recom-r #location{text-align: center; margin-bottom: 10px;}
+
+
+
+
 /* ad2 */
 #ad2{display: flex; justify-content: center; gap: 37px; margin-top: 100px;}
 #ad2 > div > a{position: relative; display: block;}

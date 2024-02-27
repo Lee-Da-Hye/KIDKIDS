@@ -7,9 +7,7 @@ let params = {
     serviceKey: serviceKey,
     numOfRows: '1',
     pageNo: '1',
-    dataTerm: 'MONTH',
     ver: '1.3',
-    stationName: '마포구',
     sidoName: sidoName,
     returnType: 'json'
 };
@@ -18,14 +16,17 @@ $.ajax({
     url: airUrl,
     method: 'GET',
     data: params,
-    success: function(response) {
-        const items = response.response.body.items;
+    success: function(result) {
+        console.log(result)
+        const items = result.response.body.items;
+
         // 미세먼지 및 오존 농도 표시
         const pm10 = getDustStatus(items);
         const o3 = getOzoneStatus(items);
         const pm10Status = getStatus(pm10);
         const o3Status = getOzoneStatusText(o3);
         updateDustInfo(sidoName, pm10Status, o3Status);
+       
         // 미세먼지 및 오존 이미지 업데이트
         updateStatusImage(pm10Status, o3Status);
     },
@@ -35,11 +36,11 @@ $.ajax({
 });
 
 function getDustStatus(items) {
-    return items[0].pm10Value; // 단위: 마이크로그램/미터³
+    return items[0].pm10Value;
 }
 
 function getOzoneStatus(items) {
-    return items[0].o3Value; // 단위: 마이크로그램/미터³
+    return items[0].o3Value; 
 }
 
 function getStatus(value) {
@@ -63,9 +64,9 @@ function getOzoneStatusText(value) {
 }
 
 function updateDustInfo(location, pm10, o3) {
-    $('#location').text('지역: ' + location);
-    $('#dustStatusText').text('미세먼지 상태: ' + pm10);
-    $('#ozoneStatusText').text('오존 상태: ' + o3);
+    $('#location').text(location);
+    $('#dustStatusText').text(pm10);
+    $('#ozoneStatusText').text(o3);
 }
 
 function updateStatusImage(pm10, o3) {
