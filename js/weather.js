@@ -1,21 +1,14 @@
 $(document).ready(function() {
   var serviceKey = 'LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D';
-  var airUrl = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`;
+//   var airUrl = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`;
   const sidoName = "서울";
 
-let params = {
-    serviceKey: serviceKey,
-    numOfRows: '1',
-    pageNo: '1',
-    ver: '1.3',
-    sidoName: sidoName,
-    returnType: 'json'
-};
+
 
 $.ajax({
-    url: airUrl,
-    method: 'GET',
-    data: params,
+    url: `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${serviceKey}&returnType=json&numOfRows=1&pageNo=1&sidoName=%EC%84%9C%EC%9A%B8&ver=1.3`,
+    //method: 'GET',
+    //data: params,
     success: function(result) {
         console.log(result)
         const items = result.response.body.items;

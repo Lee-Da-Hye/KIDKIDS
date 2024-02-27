@@ -362,10 +362,14 @@ padding-top: 30px;
 
 .slider-card{
   border: 1px solid transparent;
+  overflow:hidden;
 }
-.slider-card:hover{
+
+/*.slider-card:hover{
   border-color: var(--primary--black);
-}
+}*/
+.slider-card img{overflow: hidden; transition: 0.5s;}
+.slider-card:hover img{transform: scale(1.1);}
 .slider-card .card-thumnail-box{
   position: relative;
 }
@@ -501,7 +505,7 @@ padding-top: 30px;
 /* dust */
 
 .recom-r{min-width:185px; margin-left: 12px;}
-.recom-r #dust{text-align: center;}
+.recom-r #dust{text-align: center; margin-top: 100px;}
 .recom-r #dust > h1{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600;}
 .recom-r .status-wrap{display: flex; justify-content: center; gap: 10px;}
 .recom-r #dustStatus{margin-top: 10px;}
@@ -544,12 +548,20 @@ padding-top: 30px;
   width: 44px;
   height: 44px;
 }
-.shopping-card-thumnail-box{position: relative;}
-.shopping-card-thumnail-box:before{content: '01'; background: url(../img/shopping/rank.png) no-repeat; width: 75px; height: 38px; display: flex; position: absolute; justify-content: flex-start; align-items: center; font-size: var(--title--lg--text-6xl--medium); color: var(--primary--white); padding-left: 10px;}
-.before2::before{content: '02';}
-.before3::before{content: '03';}
-.before4::before{content: '04';}
-.before5::before{content: '05';}
+.shopping-card-thumnail-box{position: relative;overflow: hidden; transition: 0.5s;}
+.shopping-card-thumnail-box:hover{position: relative; }
+.shopping-card-thumnail-box::before,
+.shopping-card-thumnail-box:hover::before 
+{content: '01'; background: url(../img/shopping/rank.png) no-repeat; width: 75px; height: 38px; display: flex; position: absolute; justify-content: flex-start; align-items: center; font-size: var(--title--lg--text-6xl--medium); color: var(--primary--white); padding-left: 10px; z-index: 10;}
+
+.before2::before, .before2:hover::before{content: '02';}
+.before3::before,
+.before3:hover::before{content: '03';}
+.before4::before,
+.before4:hover::before{content: '04';}
+.before5::before,
+.before5:hover::before{content: '05';}
+
 #shopping-contentArea .product-name-wrap{padding-bottom: 20px;}
 #shopping-contentArea .company{font-size: var(--body--small--text-6xl--regular); 	font-weight: 400; padding-bottom: 10px;}
 #shopping-contentArea .product-name{font-size:13px; font-weight: 400; }
@@ -607,6 +619,7 @@ padding-top: 30px;
 #more-services-contentArea{margin-top: 48px;}
 #more-services-contentArea > .more-services-carousel-2{max-width: 1200px; margin: auto;}
 #more-services-contentArea > .more-services-carousel-2 > h2{margin-bottom: 30px;}
+#more-services-contentArea  .more-services-card-title-box{padding-top: 20px;}
 
 #footer{height: 200px; background-color: var(--neutral--neutral-100);margin-top: 48px;}
 
