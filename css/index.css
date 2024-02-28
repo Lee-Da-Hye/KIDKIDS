@@ -432,7 +432,7 @@ padding-top: 30px;
 .more-services-Swiper .swiper-button-next,
 .more-services-Swiper .swiper-rtl .swiper-button-prev{
   width: 30px;height: 50px;
-  background-color: #fff;
+  /*background-color: #fff;*/
 
 }
 .recom-tab-Swiper .swiper-button-next:hover,
@@ -443,7 +443,7 @@ padding-top: 30px;
 .more-services-Swiper .swiper-rtl .swiper-button-prev:hover
 {
   width: 30px;height: 50px;
-  background-color: var(--primary--primary-600);
+  background-color: #ffffffb2;
 
 }
 .recom-tab-Swiper .swiper-button-prev,
@@ -454,7 +454,7 @@ padding-top: 30px;
 .more-services-Swiper .swiper-rtl .swiper-button-next
 {
   width: 30px;height: 50px;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 .recom-tab-Swiper .swiper-button-prev:hover,
 .recom-tab-Swiper .swiper-rtl .swiper-button-next:hover,
@@ -464,7 +464,7 @@ padding-top: 30px;
 .more-services-Swiper .swiper-rtl .swiper-button-next:hover
 {
   width: 30px;height: 50px;
-  background-color: var(--primary--primary-600);
+  background-color: #ffffffb2;
 }
 .recom-tab-Swiper .swiper-button-next:after,
 .recom-tab-Swiper .swiper-rtl .swiper-button-prev:after,
@@ -550,7 +550,7 @@ padding-top: 30px;
 }
 .shopping-card-thumnail-box{position: relative;overflow: hidden; transition: 0.5s;}
 .shopping-card-thumnail-box:hover{position: relative; }
-.shopping-card-thumnail-box::before,
+/*.shopping-card-thumnail-box::before,
 .shopping-card-thumnail-box:hover::before 
 {content: '01'; background: url(../img/shopping/rank.png) no-repeat; width: 75px; height: 38px; display: flex; position: absolute; justify-content: flex-start; align-items: center; font-size: var(--title--lg--text-6xl--medium); color: var(--primary--white); padding-left: 10px; z-index: 10;}
 
@@ -560,7 +560,7 @@ padding-top: 30px;
 .before4::before,
 .before4:hover::before{content: '04';}
 .before5::before,
-.before5:hover::before{content: '05';}
+.before5:hover::before{content: '05';}*/
 
 #shopping-contentArea .product-name-wrap{padding-bottom: 20px;}
 #shopping-contentArea .company{font-size: var(--body--small--text-6xl--regular); 	font-weight: 400; padding-bottom: 10px;}
