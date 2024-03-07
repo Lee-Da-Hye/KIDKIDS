@@ -1,4 +1,4 @@
-   document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     let clickedBtn = null; // 클릭된 버튼을 추적하는 변수
 
     // Plus 버튼 클릭 시 메뉴 보이기
@@ -29,7 +29,7 @@
             let menuName = this.innerText;
             let menuLink = this.getAttribute('href')
             menuSet.style.display = 'none';
-            if (clickedBtn && !clickedBtn.innerText.trim()) {
+            if (clickedBtn && !clickedBtn.innerText) {
                 clickedBtn.innerHTML = `<a href="${menuLink}">${menuName}</a>`;
 
                 // 쿠키에 저장하기
@@ -42,7 +42,7 @@
     });
 
      // 버튼을 클릭했을 때 링크로 이동하는 기능 추가
- document.querySelectorAll('.plus_btn').forEach(function(btn) {
+    document.querySelectorAll('.plus_btn').forEach(function(btn) {
     btn.addEventListener("click", function(event) {
         if (this.querySelector("a")) { // 버튼 내에 링크가 있는지 확인
             event.preventDefault(); // 기본 동작 방지
@@ -59,13 +59,18 @@
         if (menu) {
             plusBtns[i].innerHTML = `<a href="${link}">${menu}</a>`; // 링크와 텍스트 함께 적용
             plusBtns[i].classList.add('hidden'); // 쿠키에 해당 데이터가 있으면 플러스 버튼 숨기기
+            
         }
     }
-
     // Plus 버튼에 대한 클릭 이벤트 핸들러 추가
     plusBtns.forEach(function(btn, index) {
         // 마우스 호버 이벤트 핸들러 추가
         btn.addEventListener('mouseenter', function() {
+            // 기존에 추가된 x 아이콘이 있다면 제거
+            let existingRemoveBtn = btn.querySelector('.remove_btn');
+            if (existingRemoveBtn) {
+                existingRemoveBtn.remove();
+            }
             // Plus 버튼에 해당하는 쿠키 값이 있는지 확인
             var menu = getCookie('plus_btn_' + index);
             var link = getCookie('plus_btn_link_' + index);
@@ -77,29 +82,29 @@
                 removeBtn.addEventListener('click', function(e) {
                     e.stopPropagation(); // 부모 요소에 이벤트 전파 방지
                     // 쿠키에서 해당 값 삭제
-                    
                     setCookie('plus_btn_' + index, '', -1);
                     setCookie('plus_btn_link_' + index, '', -1); // 링크 값에 대한 쿠키도 삭제
                     // Plus 버튼 내용 비우기
-
                     btn.innerText = '';
                     // Plus 버튼 표시
                     btn.innerHTML = '<img src="img/bookmark/plus.svg" alt="바로가기 추가">';
-
                     e.preventDefault();
+                });
+                // 버튼을 클릭했을 때 링크로 이동하는 기능 추가
+                btn.addEventListener("click", function(event) {
+                    if (this.querySelector("a")) { // 버튼 내에 링크가 있는지 확인
+                        event.preventDefault(); // 기본 동작 방지
+                        let menuLink = this.querySelector("a").getAttribute("href");
+                        window.location.href = menuLink; // 링크로 이동
+                        menuSet.style.display = 'none';
+                    }
                 });
                 
             }
         });
-
-        // 마우스가 벗어났을 때 x 아이콘 제거
-        btn.addEventListener('mouseleave', function() {
-          let removeBtn = btn.querySelector('.remove_btn');
-            if (removeBtn) {
-                removeBtn.remove();
-            }
-        });
+        
     });
+    
 });
 
 // 쿠키 설정 함수
@@ -124,7 +129,6 @@ function getCookie(name) {
     }
     return null;
 }
-
 
 
 //background 변경

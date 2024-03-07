@@ -295,7 +295,7 @@ padding-top: 30px;
 }
 
 #bookmark .bookmark-top > div .plus_btn,
-#bookmark .bookmark-bottom > div .plus_btn{width: 80px;height: 80px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center;/*font-size: 0;*/ background: var(--primary--white);}
+#bookmark .bookmark-bottom > div .plus_btn{width: 80px;height: 80px; border-radius: 50%; border: 1px solid #fff; display: flex; justify-content: center; align-items: center;/*font-size: 0;*/ background: var(--primary--white); cursor: pointer;}
 
 
 #bookmark .bookmark-grid-gap{
@@ -550,17 +550,7 @@ padding-top: 30px;
 }
 .shopping-card-thumnail-box{position: relative;overflow: hidden; transition: 0.5s;}
 .shopping-card-thumnail-box:hover{position: relative; }
-/*.shopping-card-thumnail-box::before,
-.shopping-card-thumnail-box:hover::before 
-{content: '01'; background: url(../img/shopping/rank.png) no-repeat; width: 75px; height: 38px; display: flex; position: absolute; justify-content: flex-start; align-items: center; font-size: var(--title--lg--text-6xl--medium); color: var(--primary--white); padding-left: 10px; z-index: 10;}
 
-.before2::before, .before2:hover::before{content: '02';}
-.before3::before,
-.before3:hover::before{content: '03';}
-.before4::before,
-.before4:hover::before{content: '04';}
-.before5::before,
-.before5:hover::before{content: '05';}*/
 
 #shopping-contentArea .product-name-wrap{padding-bottom: 20px;}
 #shopping-contentArea .company{font-size: var(--body--small--text-6xl--regular); 	font-weight: 400; padding-bottom: 10px;}
