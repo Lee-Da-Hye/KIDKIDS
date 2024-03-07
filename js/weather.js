@@ -46,7 +46,7 @@ $(document).ready(function() {
         marker.setMap(map);
 
         // 미세먼지 정보 표시
-        var pm10 = dustData.response.body.items[0].pm10Value;
+        var pm10 = dustData.response.body.items.pm10Value;
         var pm10Status = getStatus(pm10);
         $('#dustStatusText').text(pm10Status);
         // 미세먼지 상태에 따라 이미지 업데이트 등의 작업 수행
