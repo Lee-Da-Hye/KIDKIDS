@@ -14,14 +14,7 @@ $(document).ready(function() {
     // 미세먼지 데이터를 가져오고 화면에 표시하는 함수
     const getDustData = async (latitude, longitude) => {
         try {
-            let url = new URL(`https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`);
-            url.searchParams.append('serviceKey', serviceKey);
-            url.searchParams.append('json', '');
-            url.searchParams.append('numOfRows', '100');
-            url.searchParams.append('pageNo', '1');
-            url.searchParams.append('sidoName', '전국');
-            url.searchParams.append('ver', '1.0');
-
+            let url = new URL(`https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${serviceKey}&json&numOfRows=100&pageNo=1&sidoName=전국&ver=1.3`);
             let response = await fetch(url);
             let data = await response.json();
             render(data);
