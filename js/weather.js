@@ -1,163 +1,112 @@
 $(document).ready(function() {
-    // 사용자의 현재 위치 가져오기
-    navigator.geolocation.getCurrentPosition((position) => {
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
+    Kakao.init('770d3a3d2219a639452acca8e59a62d4');
+    navigator.geolocation.getCurrentPosition(function(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
-        // 미세먼지 데이터 가져오기
-        getDustData(latitude, longitude);
+    // 카카오 맵 생성
+    var mapContainer = document.getElementById('map');
+    var mapOption = {
+        center: new kakao.maps.LatLng(latitude, longitude),
+        level: 5
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 현재 위치에 마커 표시
+    var markerPosition = new kakao.maps.LatLng(latitude, longitude);
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
     });
+    marker.setMap(map);
 
-    // API 키 설정
-    const serviceKey = "LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D"; // 여기에 실제 서비스 키를 넣으세요.
-
-    // 미세먼지 데이터를 가져오고 화면에 표시하는 함수
-    const getDustData = async (latitude, longitude) => {
-        try {
-            let url = new URL(`https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${serviceKey}&json&numOfRows=100&pageNo=1&sidoName=전국&ver=1.3`);
-            let response = await fetch(url);
-            let data = await response.json();
-            render(data);
-            console.log(data);
-            displayDustInfo(latitude, longitude, data);
-        } catch (error) {
-            console.error("Error fetching dust data:", error);
-        }
-    };
-
-    // 미세먼지 정보를 화면에 표시하는 함수
-    const displayDustInfo = async (latitude, longitude, data) => {
-        // 모든 위치에 대한 미세먼지 정보 표시
-        data.response.body.items.forEach(item => {
-            let pm10 = item.pm10Value;
-            let pm10Status = getStatus(pm10);
-            // 각 위치의 좌표 가져오기
-            let locationLatitude = item.tmX;
-            let locationLongitude = item.tmY;
-
-            // 미세먼지 정보 표시
-            console.log(`위치: ${item.stationName}, 미세먼지 농도: ${pm10Status}`);
-            updateStatusImage(pm10Status);
-        });
-    };
-
-    // 미세먼지 상태를 판별하는 함수
-    const getStatus = (value) => {
-        if (value <= 30) {
-            return "좋음";
-        } else if (value <= 80) {
-            return "보통";
-        } else {
-            return "나쁨";
-        }
-    };
+  var serviceKey = 'LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D';
+//   var airUrl = `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty`;
+  const sidoName = "전국";
 
 
-    // 이미지 업데이트 함수
-     function updateStatusImage(pm10Status) {
-        var imageUrl = getStatusImageUrl(pm10Status);
-         $('#statusImage').attr('src', imageUrl);
-   }
 
-//     // 미세먼지 상태에 따른 이미지 URL 반환 함수
-    function getStatusImageUrl(status) {
-        if (status === "좋음") {
-            return "img/weather/good.png";
-        } else if (status === "보통") {
-            return "img/weather/normal.png";
-        } else {
-           return "img/weather/bad.png";
-        }
-  }
+$.ajax({
+    url: `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${serviceKey}&json&numOfRows=100&pageNo=1&sidoName=전국&ver=1.3`,
+    //method: 'GET',
+    //data: params,
+    success: function(result) {
+        console.log(result)
+        const items = result.response.body.items;
+
+        // 미세먼지 및 오존 농도 표시
+        const pm10 = getDustStatus(items);
+        const o3 = getOzoneStatus(items);
+        const pm10Status = getStatus(pm10);
+        const o3Status = getOzoneStatusText(o3);
+        updateDustInfo(sidoName, pm10Status, o3Status);
+       
+        // 미세먼지 및 오존 이미지 업데이트
+        updateStatusImage(pm10Status, o3Status);
+    },
+    error: function(error) {
+        console.log(error);
+    }
 });
- 
- 
-//  // 사용자의 현재 위치 가져오기
-//     navigator.geolocation.getCurrentPosition((position)=> {
-//         let latitude = position.coords.latitude;
-//         let longitude = position.coords.longitude;
 
-//         // 미세먼지 데이터 가져오기
-//         getDustData(latitude, longitude);
-//     })
-    
-//     let serviceKey = 'LukiVznMrRVfgr%2FmME%2Flropqo%2Fn39Hq74bNK9gZh1%2B8oW%2BLAi70wMvDqzgXK3cAyZzlWSKjieh68kBnwM8TQoQ%3D%3D';
-//     // 미세먼지 데이터 가져오는 함수
-//     const getDustData = async(latitude, longitude)=>{
-//         let url = new URL(`https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${serviceKey}&json&numOfRows=100&pageNo=1&sidoName=전국&ver=1.3`);
-//         let response = await fetch(url);
-//         let data = await response.json();
-//         render(data);
-//         console.log(data);
-//         displayDustInfo(latitude, longitude, data);
-//         //var sidoName = "전국";
+function getDustStatus(items) {
+    return items[0].pm10Value;
+}
 
-//         // $.ajax({
-//         //     url: `https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey=${serviceKey}&json&numOfRows=100&pageNo=1&sidoName=전국&ver=1.3`,
+function getOzoneStatus(items) {
+    return items[0].o3Value; 
+}
 
-//         //     success: function(result) {
-//         //         console.log(result);
-//         //         // 가져온 데이터를 화면에 표시하는 함수 호출
-//         //         displayDustInfo(latitude, longitude, result);
-//         //     },
-//         //     error: function(error) {
-//         //         console.log(error);
-//         //     }
-//         // });
-//     }
+function getStatus(value) {
+    if (value <= 30) {
+        return "좋음";
+    } else if (value <= 80) {
+        return "보통";
+    } else {
+        return "나쁨";
+    }
+}
 
-//     // 미세먼지 정보를 화면에 표시하는 함수
-//     const displayDustInfo = async(latitude, longitude, data)=>{
-//         // 미세먼지 정보를 이용하여 지도에 마커 표시 등의 작업 수행
-//         // 예를 들어, 아래와 같이 마커를 추가하고 정보를 표시할 수 있습니다.
-//         let mapContainer = document.getElementById('map');
-//         let mapOption = {
-//             center: new kakao.maps.LatLng(latitude, longitude),
-//             level: 5
-//         };
-//         let map = new kakao.maps.Map(mapContainer, mapOption);
+function getOzoneStatusText(value) {
+    if (value <= 0.03) {
+        return "좋음";
+    } else if (value <= 0.09) {
+        return "보통";
+    } else {
+        return "나쁨";
+    }
+}
 
-//         // 마커 추가
-//         let markerPosition = new kakao.maps.LatLng(latitude, longitude);
-//         let marker = new kakao.maps.Marker({
-//             position: markerPosition
-//         });
-//         marker.setMap(map);
+function updateDustInfo(location, pm10, o3) {
+    $('#location').text(location);
+    $('#dustStatusText').text(pm10);
+    $('#ozoneStatusText').text(o3);
+}
 
-//         // 미세먼지 정보 표시
-//         let pm10 = data.response.body.items.pm10Value;
-//         let pm10Status = getStatus(pm10);
-//         $('#dustStatusText').text(pm10Status);
-//         // 미세먼지 상태에 따라 이미지 업데이트 등의 작업 수행
-//         updateStatusImage(pm10Status);
-//     }
+function updateStatusImage(pm10, o3) {
+    var imageUrl1 = getStatusImageUrl(pm10);
+    var imageUrl2 = getOzoneStatusImageUrl(o3);
+    $('#statusImage1').attr('src', imageUrl1);
+    $('#statusImage2').attr('src', imageUrl2);
+}
 
-//     // 미세먼지 상태를 판별하는 함수
-//     function getStatus(value) {
-//         if (value <= 30) {
-//             return "좋음";
-//         } else if (value <= 80) {
-//             return "보통";
-//         } else {
-//             return "나쁨";
-//         }
-//     }
+function getStatusImageUrl(status) {
+    if (status === "좋음") {
+        return "img/weather/good.png"; // 좋음 상태 이미지
+    } else if (status === "보통") {
+        return "img/weather/normal.png"; // 보통 상태 이미지
+    } else {
+        return "img/weather/bad.png"; // 나쁨 상태 이미지
+    }
+}
 
-//     // 이미지 업데이트 함수
-//     function updateStatusImage(pm10Status) {
-//         var imageUrl = getStatusImageUrl(pm10Status);
-//         $('#statusImage').attr('src', imageUrl);
-//     }
-
-//     // 미세먼지 상태에 따른 이미지 URL 반환 함수
-//     function getStatusImageUrl(status) {
-//         if (status === "좋음") {
-//             return "img/weather/good.png";
-//         } else if (status === "보통") {
-//             return "img/weather/normal.png";
-//         } else {
-//             return "img/weather/bad.png";
-//         }
-//     }
-
-// getCurrentPosition()
+function getOzoneStatusImageUrl(status) {
+    if (status === "좋음") {
+        return "img/weather/good.png"; // 오존 좋음 상태 이미지
+    } else if (status === "보통") {
+        return "img/weather/normal.png"; // 오존 보통 상태 이미지
+    } else {
+        return "img/weather/bad.png"; // 오존 나쁨 상태 이미지
+    }
+}
+})
+});
