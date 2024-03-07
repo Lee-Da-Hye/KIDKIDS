@@ -21,28 +21,43 @@
       menuSet.style.display = 'none';
       e.preventDefault();
     })
+
     // 메뉴 클릭 시 메뉴 숨기고 버튼 내용 업데이트하기
     const menuItems = document.querySelectorAll('#id_my_menu_set li a');
     menuItems.forEach(function(item) {
         item.addEventListener('click', function(e) {
             let menuName = this.innerText;
+            let menuLink = this.getAttribute('href')
             menuSet.style.display = 'none';
             if (clickedBtn && !clickedBtn.innerText.trim()) {
-                clickedBtn.innerHTML = menuName;
+                clickedBtn.innerHTML = `<a href="${menuLink}">${menuName}</a>`;
 
                 // 쿠키에 저장하기
                 setCookie('plus_btn_' + clickedBtn.getAttribute('data-index'), menuName, 365);
+                setCookie('plus_btn_link_' + clickedBtn.getAttribute('data-index'), menuLink, 365); // menuLink를 쿠키에 저장
                 clickedBtn.classList.add('hidden'); // 클릭된 버튼 숨기기
                 e.preventDefault();
             }
         });
     });
 
+     // 버튼을 클릭했을 때 링크로 이동하는 기능 추가
+ document.querySelectorAll('.plus_btn').forEach(function(btn) {
+    btn.addEventListener("click", function(event) {
+        if (this.querySelector("a")) { // 버튼 내에 링크가 있는지 확인
+            event.preventDefault(); // 기본 동작 방지
+            let menuLink = this.querySelector("a").getAttribute("href");
+            window.location.href = menuLink; // 링크로 이동
+        }
+    });
+});
+
     // 페이지 로드 시 쿠키에서 저장된 메뉴를 불러와 버튼에 적용하기
     for (let i = 0; i < plusBtns.length; i++) {
         const menu = getCookie(`plus_btn_${i}`);
+        const link = getCookie(`plus_btn_link_${i}`); // 쿠키에서 링크 값 읽어오기
         if (menu) {
-            plusBtns[i].innerHTML = menu;
+            plusBtns[i].innerHTML = `<a href="${link}">${menu}</a>`; // 링크와 텍스트 함께 적용
             plusBtns[i].classList.add('hidden'); // 쿠키에 해당 데이터가 있으면 플러스 버튼 숨기기
         }
     }
@@ -53,7 +68,8 @@
         btn.addEventListener('mouseenter', function() {
             // Plus 버튼에 해당하는 쿠키 값이 있는지 확인
             var menu = getCookie('plus_btn_' + index);
-            if (menu) {
+            var link = getCookie('plus_btn_link_' + index);
+            if (menu && link) {
                 // Plus 버튼 위에 x 아이콘 추가
                 btn.innerHTML += '<span class="remove_btn"></span>';
                 // x 아이콘에 대한 클릭 이벤트 핸들러 추가
@@ -61,8 +77,11 @@
                 removeBtn.addEventListener('click', function(e) {
                     e.stopPropagation(); // 부모 요소에 이벤트 전파 방지
                     // 쿠키에서 해당 값 삭제
+                    
                     setCookie('plus_btn_' + index, '', -1);
+                    setCookie('plus_btn_link_' + index, '', -1); // 링크 값에 대한 쿠키도 삭제
                     // Plus 버튼 내용 비우기
+
                     btn.innerText = '';
                     // Plus 버튼 표시
                     btn.innerHTML = '<img src="img/bookmark/plus.svg" alt="바로가기 추가">';

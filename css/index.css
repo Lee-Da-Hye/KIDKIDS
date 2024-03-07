@@ -504,11 +504,11 @@ padding-top: 30px;
 
 /* dust */
 
-.recom-r{min-width:185px; margin-left: 12px;}
-.recom-r #dust{text-align: center; margin-top: 100px;}
-.recom-r #dust > h1{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600;}
-.recom-r .status-wrap{display: flex; justify-content: center; gap: 10px;}
-.recom-r #dustStatus{margin-top: 10px;}
+.recom-r{min-width:185px; margin-left: 40px; background-color: var(--neutral--neutral-100); margin-top: 50px; }
+.recom-r #dust{text-align: center; margin-top: 100px; margin-top: 50px}
+.recom-r #dust > h1{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600; margin-bottom: 20px}
+.recom-r .status-wrap{display: flex; justify-content: center; gap: 15px; padding-top: 10px;}
+.recom-r #dustStatus{margin-top: 5px;}
 .recom-r #location{text-align: center; margin-bottom: 10px;}
 
 
