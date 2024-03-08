@@ -34,11 +34,15 @@ $.ajax({
         const items = result.response.body.items;
 
         // 미세먼지 및 오존 농도 표시
-        const pm10 = getDustStatus(items);
-        const o3 = getOzoneStatus(items);
+        var nearbyStation = findNearbyStation(items, latitude, longitude);
+        const pm10 = nearbyStation.pm10Value;
         const pm10Status = getStatus(pm10);
-        const o3Status = getOzoneStatusText(o3);
-        updateDustInfo(sidoName, pm10Status, o3Status);
+        //const pm10 = getDustStatus(items);
+        //const o3 = getOzoneStatus(items);
+        //const pm10Status = getStatus(pm10);
+        //const o3Status = getOzoneStatusText(o3);
+       // updateDustInfo(sidoName, pm10Status, o3Status);
+       console.log(`근처 측정소: ${nearbyStation.stationName}, 미세먼지 농도: ${pm10Status}`);
        
         // 미세먼지 및 오존 이미지 업데이트
         updateStatusImage(pm10Status, o3Status);
@@ -48,13 +52,13 @@ $.ajax({
     }
 });
 
-function getDustStatus(items) {
-    return items[0].pm10Value;
-}
+// function getDustStatus(items) {
+//     return items[0].pm10Value;
+// }
 
-function getOzoneStatus(items) {
-    return items[0].o3Value; 
-}
+// function getOzoneStatus(items) {
+//     return items[0].o3Value; 
+// }
 
 function getStatus(value) {
     if (value <= 30) {
@@ -66,21 +70,21 @@ function getStatus(value) {
     }
 }
 
-function getOzoneStatusText(value) {
-    if (value <= 0.03) {
-        return "좋음";
-    } else if (value <= 0.09) {
-        return "보통";
-    } else {
-        return "나쁨";
-    }
-}
+// function getOzoneStatusText(value) {
+//     if (value <= 0.03) {
+//         return "좋음";
+//     } else if (value <= 0.09) {
+//         return "보통";
+//     } else {
+//         return "나쁨";
+//     }
+// }
 
-function updateDustInfo(location, pm10, o3) {
-    $('#location').text(location);
-    $('#dustStatusText').text(pm10);
-    $('#ozoneStatusText').text(o3);
-}
+// function updateDustInfo(location, pm10, o3) {
+//     $('#location').text(location);
+//     $('#dustStatusText').text(pm10);
+//     $('#ozoneStatusText').text(o3);
+// }
 
 function updateStatusImage(pm10, o3) {
     var imageUrl1 = getStatusImageUrl(pm10);
@@ -110,3 +114,48 @@ function getOzoneStatusImageUrl(status) {
 }
 })
 });
+
+// 사용자 주변의 측정소 찾기
+function findNearbyStation(items, userLatitude, userLongitude) {
+    var minDistance = Infinity;
+    var nearbyStation = null;
+    items.forEach(item => {
+        var stationLatitude = parseFloat(item.tmX);
+        var stationLongitude = parseFloat(item.tmY);
+        var distance = calculateDistance(userLatitude, userLongitude, stationLatitude, stationLongitude);
+        if (distance < minDistance) {
+            minDistance = distance;
+            nearbyStation = item;
+        }
+    });
+    return nearbyStation;
+}
+
+// 두 지점 사이의 거리 계산
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    var R = 6371; // 지구의 반경(km)
+    var dLat = deg2rad(lat2 - lat1);
+    var dLon = deg2rad(lon2 - lon1);
+    var a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c; // 두 지점 사이의 거리(km)
+    return d;
+}
+
+function deg2rad(deg) {
+    return deg * (Math.PI / 180);
+}
+
+// 미세먼지 상태 판별 함수
+function getStatus(value) {
+    if (value <= 30) {
+        return "좋음";
+    } else if (value <= 80) {
+        return "보통";
+    } else {
+        return "나쁨";
+    }
+}
