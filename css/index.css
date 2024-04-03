@@ -708,5 +708,5 @@ footer .award ul {display: flex; justify-content: center; gap: 40px;margin:14px 
 .mbanner-next{right: 0; position:absolute;}
 .mbanner-prev:hover, .mbanner-next:hover{opacity: 1;}
 .pagination{position: absolute; left: 0; right: 0; bottom: 0; text-align: center; margin: 0; padding: 0;}
-.pagination span{width: 10px; height: 10px; background-color: #ccc; border-radius: 50%; text-indent: -9999em; margin: 0 5px; display: inline-block;}
+.pagination span{width: 10px; height: 10px; background-color: #ccc; border-radius: 50%; text-indent: -9999em; margin: 0 5px; display: inline-block; cursor: pointer;}
 .pagination span.active{background-color: #333; width: 20px; border-radius: 20%;}
