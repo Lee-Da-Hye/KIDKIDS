@@ -74,12 +74,12 @@ body{overflow-x: hidden;overflow-y: auto;}
 
 
 /* header-contents */
-.header-contents{width: 100%; background-color: var(--primary--primary-600); height: 48px; margin-top: 50px; position: relative;}
+.header-contents{width: 100%; background-color: var(--primary--primary-600); height: 60px; margin-top: 20px; position: relative;}
 .header-contents > nav > .gnb{display: flex; max-width: 1200px; margin: auto; align-items: center; justify-content: space-between; }
 .header-contents > nav > .gnb > li{
   display: flex;
   align-items: center;
-  height: 48px;
+  height: 60px;
   color: var(--primary--white);
 }
 
@@ -87,7 +87,7 @@ body{overflow-x: hidden;overflow-y: auto;}
 .dep2-bg-box{
   position: absolute;
   left:0;
-  top: 48px;
+  top:60px;
   width: 100%; 
   background-color: var(--primary--white);
   box-shadow: 0 2px 2px #00000012;
@@ -109,10 +109,10 @@ body{overflow-x: hidden;overflow-y: auto;}
   display: flex;
   align-items: center;
   border:3px solid transparent;
-  height: 48px;
+  height: 60px;
 }
 #header .header-contents .gnb>li:hover>a{
-  border-bottom:3px solid var(--primary--primary-900);}
+  border-bottom:5px solid var(--primary--primary-900);}
 
 .dep2-center-area{
   padding: 20px 20px;
@@ -188,7 +188,7 @@ body{overflow-x: hidden;overflow-y: auto;}
 }
 .dep3-links-gap{gap:30px;}
 
-.mainbanner{
+/* .mainbanner{
   width: 100%;
   height: 100%;
   position: relative;
@@ -209,9 +209,9 @@ body{overflow-x: hidden;overflow-y: auto;}
   width: 100%;
   bottom: 30px;
   left: 30px;
-}
+} */
 /* next prev  */
-.mainbanner .swiper-button-prev:after,
+/* .mainbanner .swiper-button-prev:after,
 .mainbanner .swiper-rtl .swiper-button-next:after{
   content:'' !important;
   display: block;
@@ -234,7 +234,7 @@ body{overflow-x: hidden;overflow-y: auto;}
 .mainbanner .swiper-button-prev:hover{
   width: 44px;height: 44px;
   opacity: 1;
-}
+} */
 
 
 /*teacher-life*/
@@ -506,7 +506,7 @@ padding-top: 30px;
 
 .recom-r{min-width:185px; margin-left: 40px; background-color: var(--neutral--neutral-100); margin-top: 50px; }
 .recom-r #dust{text-align: center; margin-top: 100px; margin-top: 50px}
-.recom-r #dust > h1{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600; margin-bottom: 20px}
+.recom-r #dust > h2{font-size: var(--title--small--text-6xl--semibold);	font-weight: 600; margin-bottom: 20px}
 .recom-r .status-wrap{display: flex; justify-content: center; gap: 15px; padding-top: 10px;}
 .recom-r #dustStatus{margin-top: 5px;}
 .recom-r #location{text-align: center; margin-bottom: 10px;}
@@ -693,3 +693,20 @@ padding-top: 30px;
 footer .award{background: var(--neutral--neutral-300); margin: 14px 0px;  width: 100%; padding: 5px}
 footer .award ul {display: flex; justify-content: center; gap: 40px;margin:14px 0px 18px 0px; }
 
+.slide-wrapper{position: relative; width: 100%; overflow: hidden;}
+.slide-container{position: absolute; width: 100%; left: 0; }
+.slide-container.animated{transition: left 0.3s ease-out; -webkit-transition: left .3s ease-in; }
+.slider{position: absolute; width: 100%;}
+.slider > a > img{width: 100%;}
+.mbanner-direction{z-index: 2; position: absolute; top: 50%; transform: translateY(-50%); display: flex; width: 100%;height: 44px;}
+.mbanner-prev, .mbanner-next{width: 44px; height: 44px; opacity: 0.5; position: relative; text-indent: -9999px; cursor: pointer;}
+.mbanner-prev:before, 
+.mbanner-next:before{display: flex;position: absolute;z-index: 3;width: 44px;height: 44px; content: '';}
+.mbanner-prev:before{background: url(../img/banner/prev.svg) no-repeat;}
+.mbanner-next:before{background: url(../img/banner/next.svg) no-repeat;}
+.mbanner-prev{position:absolute;left: 0;}
+.mbanner-next{right: 0; position:absolute;}
+.mbanner-prev:hover, .mbanner-next:hover{opacity: 1;}
+.pagination{position: absolute; left: 0; right: 0; bottom: 0; text-align: center; margin: 0; padding: 0;}
+.pagination span{width: 10px; height: 10px; background-color: #ccc; border-radius: 50%; text-indent: -9999em; margin: 0 5px; display: inline-block;}
+.pagination span.active{background-color: #333; width: 20px; border-radius: 20%;}

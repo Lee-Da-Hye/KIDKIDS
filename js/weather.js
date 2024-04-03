@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('ozone-imageContainer').appendChild(image2);
 
         // 미세먼지 및 오존 이미지 업데이트
-        updateStatusImage(pm10Status, o3Status);
+        //updateStatusImage(pm10Status, o3Status);
     } catch (error) {
         console.error('Fetch error:', error);
     }

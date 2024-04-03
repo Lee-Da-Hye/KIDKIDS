@@ -467,29 +467,39 @@
       </div>
     </header>
     <div class="mainbanner">
-      <div class="swiper banner-swiper">
-        <div class="swiper-wrapper">
+      <div class="slide-wrapper">
+        <div class="slide-container">
           <!-- Slides -->
-          <div class="swiper-slide slider">
+          <div class="slide1 slider">
             <a href="#">
               <img src="img/banner/banner1.png" alt="새 친구들, 새로운 환경 우리원 만들기 키드키즈몰">
             </a>
           </div>
-          <div class="swiper-slide slider">
+          <div class="slide2 slider">
             <a href="#">
               <img src="img/banner/banner2.png" alt="깐깐하게 고른 베스트 시작부터 완벽! 신학기 교재 키드키즈몰 ">
             </a>
           </div>
-          <div class="swiper-slide slider">
+          <div class="slide3 slider">
             <a href="#">
               <img src="img/banner/banner3.png" alt="교사의 소질과 특성 알고 싶다면? 교사 인적성검사 지금 신청하세요! 자세히보기">
             </a>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="pagination">
+          <!-- <span data-idx = '0'>1</span>
+          <span data-idx = '1'>2</span>
+          <span data-idx = '2'>3</span> -->
+        </div>
         <!-- navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="mbanner-direction">
+          <div class="mbanner-prev">
+            이전버튼
+          </div>
+          <div class="mbanner-next">
+            다음버튼
+          </div>
+        </div>
       </div>
     </div>
     <section id="teacher-life">
@@ -1342,6 +1352,7 @@
   <script src="js/bookmark.js"></script>
   <script src="js/header.js"></script>
   <script src="js/footer.js"></script>
+  <script src="js/slide.js"></script>
 
 </body>
 </html>
